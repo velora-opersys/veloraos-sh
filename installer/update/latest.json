@@ -1,13 +1,13 @@
 {
-  "version": "1.6.0",
-  "publishedAt": "2026-07-15T12:00:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/update/VeloraOS-Update-1.6.0.sh",
-  "sha256": "b463178fa8ec69e79ffc8e596183aadf38cfa803b0de7e23e526ef580b8005c2",
-  "title": "VeloraOS 1.6.0",
+  "version": "1.6.1",
+  "publishedAt": "2026-07-14T20:30:00Z",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/update/VeloraOS-Update-1.6.1.sh",
+  "sha256": "65eb855cc4d5fe281d9cc5f1972d4c89179a8400e739bbbee1dea2f362c02d60",
+  "title": "VeloraOS 1.6.1",
   "releaseNotes": [
-    "Improved licence handling",
-    "Faster model startup",
-    "Web UI fixes"
+    "Added verified updates inside the local VeloraOS Web UI.",
+    "Added SHA-256 validation and a dedicated systemd update service.",
+    "Added update notifications, release notes, progress states and sanitised logs."
   ],
   "rebootRequired": false
 }
