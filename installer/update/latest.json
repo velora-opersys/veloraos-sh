@@ -2,7 +2,7 @@
   "version": "1.6.0",
   "publishedAt": "2026-07-15T12:00:00Z",
   "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/update/VeloraOS-Update-1.6.0.sh",
-  "sha256": "64-character-sha256",
+  "sha256": "b463178fa8ec69e79ffc8e596183aadf38cfa803b0de7e23e526ef580b8005c2",
   "title": "VeloraOS 1.6.0",
   "releaseNotes": [
     "Improved licence handling",
