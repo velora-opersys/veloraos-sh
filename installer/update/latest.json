@@ -1,7 +1,7 @@
 {
   "version": "1.6.1",
   "publishedAt": "2026-07-14T20:30:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/update/VeloraOS-Update-1.6.1.sh",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.6.1.sh",
   "sha256": "65eb855cc4d5fe281d9cc5f1972d4c89179a8400e739bbbee1dea2f362c02d60",
   "title": "VeloraOS 1.6.1",
   "releaseNotes": [
