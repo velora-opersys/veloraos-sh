@@ -10,11 +10,11 @@ trap cleanup EXIT INT TERM
 PAYLOAD_FILE="$TMPDIR/payload.tar.gz"
 awk -v marker="$MARKER" '$0==marker{found=1;next}found{print}END{if(!found)exit 2}' "$0" | base64 --decode > "$PAYLOAD_FILE"
 ACTUAL_BYTES="$(stat -c '%s' "$PAYLOAD_FILE")"
-[[ "$ACTUAL_BYTES" == "$PAYLOAD_BYTES" ]] || { echo 'Installer payload size check failed.' >&2; exit 1; }
+[[ "$ACTUAL_BYTES" == "$PAYLOAD_BYTES" ]] || { echo 'Updater payload size check failed.' >&2; exit 1; }
 ACTUAL_SHA256="$(sha256sum "$PAYLOAD_FILE" | awk '{print $1}')"
-[[ "$ACTUAL_SHA256" == "$EXPECTED_SHA256" ]] || { echo 'Installer payload integrity check failed.' >&2; exit 1; }
+[[ "$ACTUAL_SHA256" == "$EXPECTED_SHA256" ]] || { echo 'Updater payload integrity check failed.' >&2; exit 1; }
 tar -xzf "$PAYLOAD_FILE" -C "$TMPDIR"
-exec "$TMPDIR/veloraos-1.6.0/installer/veloraos-install.sh" "$@"
+exec "$TMPDIR/veloraos-1.6.0/installer/veloraos-update.sh" "$@"
 exit 1
 __VELORAOS_LICENSED_PAYLOAD__
 H4sIAAAAAAAAA+w723LbxpJ59leMmawGKJEQL7qZFOSSFSf2WTnWhrJrNzpaFwQMSUQgwAAgZR5J
