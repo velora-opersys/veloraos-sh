@@ -1,14 +1,14 @@
 {
-  "version": "1.6.3",
-  "publishedAt": "2026-07-14T23:42:29Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.6.3.sh",
-  "sha256": "f157741d4de0bc49a3ad44a85f07107f1d2dd85b3582c3e39bcccbc07e43cfa0",
-  "title": "VeloraOS 1.6.3 \u2014 First-Run Wizard UX Hotfix",
+  "version": "1.7.0",
+  "publishedAt": "2026-07-15T19:07:35Z",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.7.0.sh",
+  "sha256": "eb7b91246fb6ffb3216fc36c7a5e3c1c269aa6ee91d1accdb20d59b12bd9e9f6",
+  "title": "VeloraOS 1.7.0 — GPU Diagnostics & Complete Chat",
   "releaseNotes": [
-    "Fixed the Device step so entering a valid system name enables Continue immediately.",
-    "Continue now securely saves an edited device name before moving to licensing.",
-    "Clarified that the fresh-install current administrator password is veloraos.",
-    "Kept accounts, chats, settings, avatars, licensing identity, setup state and Ollama models preserved."
+    "Added live GPU, PCI, VM passthrough, CUDA, ROCm, Vulkan, RAM, VRAM and Ollama diagnostics.",
+    "Added an administrator-only acceleration test and loaded-model CPU/GPU usage reporting.",
+    "Completed Chat with copy, edit and resend, regenerate, rename, search, Markdown/JSON export, tables and syntax highlighting.",
+    "Added per-response token, speed and duration statistics while preserving all existing user data, licensing and models."
   ],
   "rebootRequired": false
 }
