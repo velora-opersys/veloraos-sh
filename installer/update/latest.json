@@ -1,13 +1,14 @@
 {
-  "version": "1.6.1",
-  "publishedAt": "2026-07-14T20:30:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.6.1.sh",
-  "sha256": "a0d261f84f378ef53cab7514bd8671c14d87a0e7120967bb829fff2810a55c2b",
-  "title": "VeloraOS 1.6.1",
+  "version": "1.6.3",
+  "publishedAt": "2026-07-14T23:42:29Z",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.6.3.sh",
+  "sha256": "f157741d4de0bc49a3ad44a85f07107f1d2dd85b3582c3e39bcccbc07e43cfa0",
+  "title": "VeloraOS 1.6.3 \u2014 First-Run Wizard UX Hotfix",
   "releaseNotes": [
-    "Added verified updates inside the local VeloraOS Web UI.",
-    "Added SHA-256 validation and a dedicated systemd update service.",
-    "Added update notifications, release notes, progress states and sanitised logs."
+    "Fixed the Device step so entering a valid system name enables Continue immediately.",
+    "Continue now securely saves an edited device name before moving to licensing.",
+    "Clarified that the fresh-install current administrator password is veloraos.",
+    "Kept accounts, chats, settings, avatars, licensing identity, setup state and Ollama models preserved."
   ],
   "rebootRequired": false
 }
