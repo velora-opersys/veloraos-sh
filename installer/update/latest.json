@@ -1,14 +1,9 @@
 {
-  "version": "1.7.0",
-  "publishedAt": "2026-07-15T19:07:35Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.7.0.sh",
-  "sha256": "eb7b91246fb6ffb3216fc36c7a5e3c1c269aa6ee91d1accdb20d59b12bd9e9f6",
-  "title": "VeloraOS 1.7.0 — GPU Diagnostics & Complete Chat",
-  "releaseNotes": [
-    "Added live GPU, PCI, VM passthrough, CUDA, ROCm, Vulkan, RAM, VRAM and Ollama diagnostics.",
-    "Added an administrator-only acceleration test and loaded-model CPU/GPU usage reporting.",
-    "Completed Chat with copy, edit and resend, regenerate, rename, search, Markdown/JSON export, tables and syntax highlighting.",
-    "Added per-response token, speed and duration statistics while preserving all existing user data, licensing and models."
-  ],
+  "version": "1.8.4",
+  "publishedAt": "2026-07-15T23:56:20Z",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.8.4-Profile-Menu-Layer-Hotfix.sh",
+  "sha256": "93db183ca2f9ef7a4bbd81b84824908ac31ab11e218a0dd59644d9847e365320",
+  "title": "VeloraOS 1.8.4 \u2014 Profile Menu Layer Hotfix",
+  "notes": "Fixes the account dropdown being clipped underneath workspace content by adding an explicit header stacking layer and overflow path. Preserves the dock, accounts, licensing, backups, recovery and secure updates.",
   "rebootRequired": false
 }
