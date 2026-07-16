@@ -1,5 +1,5 @@
 7625e8d903ddc23da99856b250358cf6a8dab3cf9806612089daf2303531acda  VeloraOS-1.8.4-Profile-Menu-Layer-Hotfix-Source.zip
 70d14d4d544e69b7b3e16166a4b1ceb15956a2ae20378692fb1119b440d8c052  VeloraOS-Install-1.8.4-Profile-Menu-Layer-Hotfix.sh
 93db183ca2f9ef7a4bbd81b84824908ac31ab11e218a0dd59644d9847e365320  VeloraOS-Update-1.8.4-Profile-Menu-Layer-Hotfix.sh
-e0f2b3c4ca3696062b1929fcd663dee26a220aa0d01a039e2c3ca63ba687bf90  latest.json
+7596b2e35976c426aa9cb16ff84e1fa8049453130292efa620327091cd443423  latest.json
 f384cfdfe4bd65a694a33f3aef1b898ad978eaa43ddf0d678b0d69c2f776bfb5  VeloraOS-1.8.4-Profile-Menu-Layer-Hotfix-Handoff.txt
