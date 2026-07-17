@@ -1,12 +1,15 @@
 {
-  "version": "1.8.4",
-  "publishedAt": "2026-07-15T23:56:20Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.8.4-Profile-Menu-Layer-Hotfix.sh",
-  "sha256": "93db183ca2f9ef7a4bbd81b84824908ac31ab11e218a0dd59644d9847e365320",
-  "title": "VeloraOS 1.8.4 \u2014 Profile Menu Layer Hotfix",
+  "version": "1.9.0",
+  "publishedAt": "2026-07-17T08:14:47Z",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.9.0-Licensing-Polish.sh",
+  "sha256": "707b0b5949f8a0b08b49341142017b75ed538ae9780e89cad7c215bc5a332b93",
+  "title": "VeloraOS 1.9.0 - Licensing Polish",
   "releaseNotes": [
-    "Fixes the account dropdown being clipped underneath workspace content by adding an explicit header stacking layer and overflow path.",
-    "Preserves the dock, accounts, licensing, backups, recovery and secure updates."
+    "Adds clear inactive, expired, revoked, device-limit, device-mismatch, activation-missing, offline-grace and service-error licensing states.",
+    "Preserves an existing valid entitlement when a replacement licence attempt fails.",
+    "Clears the licence-key field immediately after submission.",
+    "Preserves users, chats, settings, avatars, models, licensing files and device identity during update.",
+    "Retains SHA-256 verification, Bash syntax checks, atomic deployment and rollback."
   ],
   "rebootRequired": false
 }

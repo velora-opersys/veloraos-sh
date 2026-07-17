@@ -1,0 +1,3 @@
+b7b74b4eee0f8ee7f7a016d40aaf011dbec1b458585a5800d2b2e9fb99a71056  VeloraOS-Install-1.9.0-Licensing-Polish.sh
+707b0b5949f8a0b08b49341142017b75ed538ae9780e89cad7c215bc5a332b93  VeloraOS-Update-1.9.0-Licensing-Polish.sh
+1788286795f998276f4f26a2d2696145feb92daf9bb29f5423e8db931a685333  latest.json
