@@ -1,0 +1,3 @@
+6d51e27215fad75eca2f5210411f226af43d177b1899c7e714cfc4468e1e7987  VeloraOS-Install-1.9.4-Mobile-Viewing-Hotfix.sh
+64f5122c9a6adfe8c38dc9c3a80050eafd77982f8e942ca62954085cdcc272e1  VeloraOS-Update-1.9.4-Mobile-Viewing-Hotfix.sh
+f6efedfba7ac0a4ba89fbda500e6fd550b7162248d73fed2d4f3f3f699f29989  latest.json

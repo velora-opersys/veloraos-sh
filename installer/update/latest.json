@@ -1,14 +1,14 @@
 {
-    "version":  "1.9.3",
-    "publishedAt":  "2026-07-17T09:35:01Z",
-    "scriptUrl":  "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.9.3-Logo-Visibility-Hotfix.sh",
-    "sha256":  "208c19c923231d3316095eabea0067d12aed080e4d9c79fbb0e91fa9d58a07b9",
-    "title":  "VeloraOS 1.9.3 - Logo Visibility Hotfix",
-    "releaseNotes":  [
-                         "Restores the VLOS SVG wordmark in the top-left header.",
-                         "Keeps the duplicate VeloraOS text and local-appliance tagline hidden.",
-                         "Keeps installed-only Chat model selection and all v1.9.2 behaviour unchanged.",
-                         "Preserves users, chats, settings, avatars, models, licensing files and device identity."
-                     ],
-    "rebootRequired":  false
+  "version": "1.9.4",
+  "publishedAt": "2026-07-17T18:09:33Z",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.9.4-Mobile-Viewing-Hotfix.sh",
+  "sha256": "64f5122c9a6adfe8c38dc9c3a80050eafd77982f8e942ca62954085cdcc272e1",
+  "title": "VeloraOS 1.9.4 - Mobile Viewing Hotfix",
+  "releaseNotes": [
+    "Adds a compact mobile header with safe-area support for phone screens.",
+    "Adds a slide-out chat-history drawer and mobile bottom-sheet model picker.",
+    "Improves touch targets, chat composition, dialogs, cards, forms and narrow-screen overflow.",
+    "Preserves installed-only models, SVG branding, user data, licensing files and device identity."
+  ],
+  "rebootRequired": false
 }
