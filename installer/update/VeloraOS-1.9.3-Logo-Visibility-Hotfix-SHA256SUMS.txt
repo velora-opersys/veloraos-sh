@@ -1,0 +1,3 @@
+a6e39588772a0913db53149bbb6302a5a071400970df78392d180699110ff99a  VeloraOS-Install-1.9.3-Logo-Visibility-Hotfix.sh
+208c19c923231d3316095eabea0067d12aed080e4d9c79fbb0e91fa9d58a07b9  VeloraOS-Update-1.9.3-Logo-Visibility-Hotfix.sh
+4b0819e61d0c195eff38e7054104d647767c3b63e53b1d1d908611049bdab37a  latest.json

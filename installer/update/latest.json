@@ -1,14 +1,14 @@
 {
-  "version": "1.9.2",
-  "publishedAt": "2026-07-17T09:11:09Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.9.2-Header-Branding-Hotfix.sh",
-  "sha256": "5fb44e4d01f6341141e7d341773aa31fa65a9e3c9604ec251a103b54b770aee4",
-  "title": "VeloraOS 1.9.2 - Header Branding Hotfix",
-  "releaseNotes": [
-    "Uses the VLOS wordmark as the sole brand element in the main header.",
-    "Removes the duplicate VeloraOS text and local-appliance tagline from the header.",
-    "Keeps installed-only Chat model selection and all v1.9.1 behaviour unchanged.",
-    "Preserves users, chats, settings, avatars, models, licensing files and device identity."
-  ],
-  "rebootRequired": false
+    "version":  "1.9.3",
+    "publishedAt":  "2026-07-17T09:35:01Z",
+    "scriptUrl":  "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.9.3-Logo-Visibility-Hotfix.sh",
+    "sha256":  "208c19c923231d3316095eabea0067d12aed080e4d9c79fbb0e91fa9d58a07b9",
+    "title":  "VeloraOS 1.9.3 - Logo Visibility Hotfix",
+    "releaseNotes":  [
+                         "Restores the VLOS SVG wordmark in the top-left header.",
+                         "Keeps the duplicate VeloraOS text and local-appliance tagline hidden.",
+                         "Keeps installed-only Chat model selection and all v1.9.2 behaviour unchanged.",
+                         "Preserves users, chats, settings, avatars, models, licensing files and device identity."
+                     ],
+    "rebootRequired":  false
 }
