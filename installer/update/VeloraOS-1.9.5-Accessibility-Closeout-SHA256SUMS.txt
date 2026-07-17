@@ -1,0 +1,3 @@
+af7a7bd71e9249d7ac9265bdd44749e583f025199e60228ab2b281f4c8985a44  VeloraOS-Install-1.9.5-Accessibility-Closeout.sh
+9c6f3e14c592b3bb646e9a1ed82de31204614891a048f7aaa144e7a6afd32241  VeloraOS-Update-1.9.5-Accessibility-Closeout.sh
+4384803c2f072cf53b60b311939d2e8d1e47ac3165a33c321e18f26c06061e6c  latest.json
