@@ -1,0 +1,3 @@
+b846fe080613636d0dc4d187675231232c6d0eda4e4b3f9d4e225841fa861aa5  VeloraOS-Install-1.9.1-Models-Logo-Hotfix.sh
+193c8980f6a39cae3f33aeb8b076771e03a0e485c46e363ebf11c80b7aa4bf73  VeloraOS-Update-1.9.1-Models-Logo-Hotfix.sh
+9ead695b6e4f587d2e467ba90ac492c69240ef6438d2c1d84c25bff317377cd9  latest.json

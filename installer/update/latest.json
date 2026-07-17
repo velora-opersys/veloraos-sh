@@ -1,15 +1,14 @@
 {
-  "version": "1.9.0",
-  "publishedAt": "2026-07-17T08:14:47Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.9.0-Licensing-Polish.sh",
-  "sha256": "707b0b5949f8a0b08b49341142017b75ed538ae9780e89cad7c215bc5a332b93",
-  "title": "VeloraOS 1.9.0 - Licensing Polish",
+  "version": "1.9.1",
+  "publishedAt": "2026-07-17T08:56:58Z",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.9.1-Models-Logo-Hotfix.sh",
+  "sha256": "193c8980f6a39cae3f33aeb8b076771e03a0e485c46e363ebf11c80b7aa4bf73",
+  "title": "VeloraOS 1.9.1 - Models and Logo Hotfix",
   "releaseNotes": [
-    "Adds clear inactive, expired, revoked, device-limit, device-mismatch, activation-missing, offline-grace and service-error licensing states.",
-    "Preserves an existing valid entitlement when a replacement licence attempt fails.",
-    "Clears the licence-key field immediately after submission.",
-    "Preserves users, chats, settings, avatars, models, licensing files and device identity during update.",
-    "Retains SHA-256 verification, Bash syntax checks, atomic deployment and rollback."
+    "Chat now lists only models that are installed and ready locally.",
+    "The complete installable catalogue remains available on the Models page.",
+    "Adds the official VeloraOS VLOS wordmark to the main header and login screen.",
+    "Preserves users, chats, settings, avatars, models, licensing files and device identity."
   ],
   "rebootRequired": false
 }
