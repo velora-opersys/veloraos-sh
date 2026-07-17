@@ -1,13 +1,13 @@
 {
-  "version": "1.9.1",
-  "publishedAt": "2026-07-17T08:56:58Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.9.1-Models-Logo-Hotfix.sh",
-  "sha256": "193c8980f6a39cae3f33aeb8b076771e03a0e485c46e363ebf11c80b7aa4bf73",
-  "title": "VeloraOS 1.9.1 - Models and Logo Hotfix",
+  "version": "1.9.2",
+  "publishedAt": "2026-07-17T09:11:09Z",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.9.2-Header-Branding-Hotfix.sh",
+  "sha256": "5fb44e4d01f6341141e7d341773aa31fa65a9e3c9604ec251a103b54b770aee4",
+  "title": "VeloraOS 1.9.2 - Header Branding Hotfix",
   "releaseNotes": [
-    "Chat now lists only models that are installed and ready locally.",
-    "The complete installable catalogue remains available on the Models page.",
-    "Adds the official VeloraOS VLOS wordmark to the main header and login screen.",
+    "Uses the VLOS wordmark as the sole brand element in the main header.",
+    "Removes the duplicate VeloraOS text and local-appliance tagline from the header.",
+    "Keeps installed-only Chat model selection and all v1.9.1 behaviour unchanged.",
     "Preserves users, chats, settings, avatars, models, licensing files and device identity."
   ],
   "rebootRequired": false

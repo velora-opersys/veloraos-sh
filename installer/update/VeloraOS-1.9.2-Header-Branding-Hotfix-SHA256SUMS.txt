@@ -1,0 +1,3 @@
+36ea71c6d57a481999bb8ce944c9e9abeb3fa03b9b894535d554360f50fd105d  VeloraOS-Install-1.9.2-Header-Branding-Hotfix.sh
+5fb44e4d01f6341141e7d341773aa31fa65a9e3c9604ec251a103b54b770aee4  VeloraOS-Update-1.9.2-Header-Branding-Hotfix.sh
+2bade4c54b9bceffb227b5834ea4f7c434f9411b3243463524bab702f8b85177  latest.json
