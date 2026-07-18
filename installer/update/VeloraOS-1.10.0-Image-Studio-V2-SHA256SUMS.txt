@@ -1,0 +1,3 @@
+a3c928edf6ff8483a9ac6439053f467d558b474655750da0bf1074bee1cdd21c  VeloraOS-Install-1.10.0-Image-Studio-V2.sh
+0d85422e5216a38d2cd94ee9da9d5a8555bde141e6912f393be0d8ebc09e870e  VeloraOS-Update-1.10.0-Image-Studio-V2.sh
+c5f14cb79676582b52c88215c5c97eb58994d54dbcde7fd1854a827f76aeb04e  latest.json
