@@ -1,0 +1,3 @@
+587b78b864e7975a0c510b01ad743e1b10f8042f900538344d5361b0bad6bc7d  VeloraOS-Install-1.10.1-Public-Beta-Chat-Focus.sh
+0cad2e47b524d1b1924047daea36adf406848f5fb3c0e94d670d9e4bb9c16096  VeloraOS-Update-1.10.1-Public-Beta-Chat-Focus.sh
+f05e4e37c88dfdbcd673eacba1728d2da8e73e20de2178d8de924a0070b2a416  latest.json
