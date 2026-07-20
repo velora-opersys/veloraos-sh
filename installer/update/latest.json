@@ -1,14 +1,14 @@
 {
-  "version": "1.10.1",
-  "publishedAt": "2026-07-20T15:20:33Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.1-Public-Beta-Chat-Focus.sh",
-  "sha256": "0cad2e47b524d1b1924047daea36adf406848f5fb3c0e94d670d9e4bb9c16096",
-  "title": "VeloraOS 1.10.1 - Public Beta Chat Focus",
+  "version": "1.10.2",
+  "publishedAt": "2026-07-20T15:40:09Z",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.2-Public-Beta-Models-Hotfix.sh",
+  "sha256": "daa1f713961b2cfaba23404109f7b85d88204bf6582f612bb32ba1189a23ac58",
+  "title": "VeloraOS 1.10.2 - Public Beta Models Access Hotfix",
   "releaseNotes": [
-    "Makes Chat the only available customer-facing workspace during public beta.",
-    "Marks Models, Image Studio and Video Studio as coming soon while preserving their data and underlying code.",
-    "Adds first-setup selection and sequential download of one or more starter Chat models.",
-    "Preserves accounts, chats, settings, avatars, installed models, licensing, device identity and secure rollback updates."
+    "Keeps both Chat and Models available during public beta.",
+    "Restores Models to the primary dock and enables its home card.",
+    "Keeps Image Studio, Video Studio and Upgrades marked as coming soon.",
+    "Preserves first-setup model selection, accounts, chats, settings, licensing, device identity and secure rollback updates."
   ],
   "rebootRequired": false
 }
