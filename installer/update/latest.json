@@ -1,14 +1,14 @@
 {
-  "version": "1.10.2",
+  "version": "1.10.3",
   "publishedAt": "2026-07-22T00:00:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.2-Public-Beta-Models-Logo-Hotfix.sh",
-  "sha256": "efe9e82cae6c1503a58c7706d0669c7b08b53c0b9494668704b7f07067176a6c",
-  "title": "VeloraOS 1.10.2 - Public Beta Models Logo Hotfix",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.3-Models-Logo-Hotfix.sh",
+  "sha256": "a324fcc3e0350b25d95ea871cb70c959f05062841976e7857712357dc38dcf36",
+  "title": "VeloraOS 1.10.3 - Models Homepage Logo Hotfix",
   "releaseNotes": [
     "Fixes the Models card on the VeloraOS homepage so its logo no longer renders as undefined.",
-    "Keeps both Chat and Models available during public beta.",
-    "Keeps Image Studio, Video Studio and Upgrades marked as coming soon.",
-    "Preserves accounts, chats, settings, licensing, device identity and secure rollback updates."
+    "Adds a safe fallback icon for unexpected homepage icon values.",
+    "Refreshes the frontend asset cache so installed systems load the corrected interface.",
+    "Preserves accounts, chats, settings, installed models, licensing, device identity and secure rollback updates."
   ],
   "rebootRequired": false
 }

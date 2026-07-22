@@ -1,0 +1,3 @@
+ba44a033fb4822501a3aea1dd84b39c9ae310cf357a8d43f6226170d2daa0070  installer/current/VeloraOS-Install-1.10.3-Models-Logo-Hotfix.sh
+a324fcc3e0350b25d95ea871cb70c959f05062841976e7857712357dc38dcf36  installer/update/VeloraOS-Update-1.10.3-Models-Logo-Hotfix.sh
+551b92702525bbe729887c66c3b03cd383ba00e5350fa3dada46b505ae4b8aed  installer/update/latest.json
