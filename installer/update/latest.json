@@ -1,13 +1,13 @@
 {
-  "version": "1.10.3",
+  "version": "1.10.4",
   "publishedAt": "2026-07-22T00:00:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.3-Models-Logo-Hotfix.sh",
-  "sha256": "a324fcc3e0350b25d95ea871cb70c959f05062841976e7857712357dc38dcf36",
-  "title": "VeloraOS 1.10.3 - Models Homepage Logo Hotfix",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.4-Models-Logo-Updater-Fix.sh",
+  "sha256": "a26af65ac3e12c0205766d9f592a6a4032dd3f112d1287c0f4a1ff8d663b6bd8",
+  "title": "VeloraOS 1.10.4 - Models Logo Updater Fix",
   "releaseNotes": [
-    "Fixes the Models card on the VeloraOS homepage so its logo no longer renders as undefined.",
-    "Adds a safe fallback icon for unexpected homepage icon values.",
-    "Refreshes the frontend asset cache so installed systems load the corrected interface.",
+    "Fixes the Models homepage logo remaining undefined after upgrading from an older public-beta installation.",
+    "Stops the updater from replacing current frontend icon definitions with stale JavaScript icon data from the previous installation.",
+    "Keeps standalone local artwork preservation while deploying the current Models SVG and safe fallback icon.",
     "Preserves accounts, chats, settings, installed models, licensing, device identity and secure rollback updates."
   ],
   "rebootRequired": false
