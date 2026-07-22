@@ -1,14 +1,14 @@
 {
-  "version": "1.10.5",
+  "version": "1.10.6",
   "publishedAt": "2026-07-22T00:00:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.5-System-Info.sh",
-  "sha256": "03392ba44f08506cdf4cacdc1bca04a345e1d064160f074f7371bcac3b3a065a",
-  "title": "VeloraOS 1.10.5 - System Info",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.6-Notifications.sh",
+  "sha256": "e1732ea80ecc9790c133cdfba6f9551f2253f28b5b4aebe0cbaf22e531b3bb33",
+  "title": "VeloraOS 1.10.6 - Notifications",
   "releaseNotes": [
-    "Adds a System Info section to the profile menu.",
-    "Combines GPU and Ollama diagnostics with backup, restore and recovery tools on one page.",
-    "Keeps the existing diagnostics and recovery routes internally for compatibility.",
-    "Preserves accounts, chats, settings, installed models, licensing, device identity and secure rollback updates."
+    "Adds a Notifications area with a bell and unread badge in the VeloraOS header.",
+    "New VeloraOS update alerts now appear in Notifications with a direct link to System Updates.",
+    "Update failures and active update progress can also surface as system notifications.",
+    "Preserves System Info, accounts, chats, settings, installed models, licensing, device identity and secure rollback updates."
   ],
   "rebootRequired": false
 }

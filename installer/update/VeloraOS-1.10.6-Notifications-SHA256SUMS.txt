@@ -1,0 +1,3 @@
+00f7cfd717aa76b36b7cf54128ea4630250d15873f1aaa9e3030243427cb093b  installer/current/VeloraOS-Install-1.10.6-Notifications.sh
+e1732ea80ecc9790c133cdfba6f9551f2253f28b5b4aebe0cbaf22e531b3bb33  installer/update/VeloraOS-Update-1.10.6-Notifications.sh
+151797eb0d10c6ff31c84869cb39b28819d4402e8ca1f6641f086ca8f14042d4  installer/update/latest.json
