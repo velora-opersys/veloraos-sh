@@ -1,0 +1,3 @@
+7c856da8e99b7fa394287fc9485ab6337b46026bc85ac6ae6e19555e66cb5f64  installer/current/VeloraOS-Install-1.10.5-System-Info.sh
+03392ba44f08506cdf4cacdc1bca04a345e1d064160f074f7371bcac3b3a065a  installer/update/VeloraOS-Update-1.10.5-System-Info.sh
+d2bb5d01ce204a79d35019477df78d12e79fc9d584cd6d76acdeb46f21a563a4  installer/update/latest.json

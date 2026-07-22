@@ -1,13 +1,13 @@
 {
-  "version": "1.10.4",
+  "version": "1.10.5",
   "publishedAt": "2026-07-22T00:00:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.4-Models-Logo-Updater-Fix.sh",
-  "sha256": "a26af65ac3e12c0205766d9f592a6a4032dd3f112d1287c0f4a1ff8d663b6bd8",
-  "title": "VeloraOS 1.10.4 - Models Logo Updater Fix",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.5-System-Info.sh",
+  "sha256": "03392ba44f08506cdf4cacdc1bca04a345e1d064160f074f7371bcac3b3a065a",
+  "title": "VeloraOS 1.10.5 - System Info",
   "releaseNotes": [
-    "Fixes the Models homepage logo remaining undefined after upgrading from an older public-beta installation.",
-    "Stops the updater from replacing current frontend icon definitions with stale JavaScript icon data from the previous installation.",
-    "Keeps standalone local artwork preservation while deploying the current Models SVG and safe fallback icon.",
+    "Adds a System Info section to the profile menu.",
+    "Combines GPU and Ollama diagnostics with backup, restore and recovery tools on one page.",
+    "Keeps the existing diagnostics and recovery routes internally for compatibility.",
     "Preserves accounts, chats, settings, installed models, licensing, device identity and secure rollback updates."
   ],
   "rebootRequired": false
