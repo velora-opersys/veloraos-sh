@@ -1,0 +1,3 @@
+eaeba58e1d1db8e77c93da2d5658944ff55cf3d2ed7440bb38564fdcd8c9dd81  installer/current/VeloraOS-Install-1.10.15-Thinking-Indicator.sh
+da1102394fb815f61252ab13f7a73b0206125575e9ab6eb7916435e163498f69  installer/update/VeloraOS-Update-1.10.15-Thinking-Indicator.sh
+a7620c71852da26636c6bfbdfb291787ef7cef3ab11f997e7269dbf90538a08b  installer/update/latest.json
