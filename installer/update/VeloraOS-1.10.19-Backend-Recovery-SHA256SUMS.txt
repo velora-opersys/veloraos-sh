@@ -1,0 +1,3 @@
+5cc225360d8b55a9aaca81c8e1f93a1f0d3d147e363ed820d247c1e31632af50  installer/current/VeloraOS-Install-1.10.19-Backend-Recovery.sh
+189f4b5b178eb3307963cad36e03ce72cd755e53a977dcdf3f994aec4070e126  installer/update/VeloraOS-Update-1.10.19-Backend-Recovery.sh
+dbe5f96707789e44d0dc8ec0c4331aa1d7833241f4adf3f7361165a4c66b4c35  installer/update/latest.json

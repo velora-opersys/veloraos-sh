@@ -1,15 +1,15 @@
 {
-  "version": "1.10.18",
+  "version": "1.10.19",
   "publishedAt": "2026-07-23T00:00:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.18-Persistent-TLS-Hotfix.sh",
-  "sha256": "da549e174911c34687a639209114c41e49760595240d857da9a0857288e15281",
-  "title": "VeloraOS 1.10.18 - Persistent TLS Hotfix",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.19-Backend-Recovery.sh",
+  "sha256": "189f4b5b178eb3307963cad36e03ce72cd755e53a977dcdf3f994aec4070e126",
+  "title": "VeloraOS 1.10.19 - Backend Recovery",
   "releaseNotes": [
-    "Stops normal VeloraOS updates from regenerating a valid HTTPS device certificate and private key.",
-    "Keeps the VeloraOS Local CA stable across software updates and adds an updater safety check that rejects accidental CA rotation.",
-    "Fixes 403 Forbidden when downloading the Local CA certificate by serving a safe public copy outside the protected private-key directory.",
-    "Makes /veloraos-local-ca.crt available without account authentication so a new device can establish trust before signing in.",
-    "Preserves Chat stability, model intelligence, background jobs, PWA support and secure rollback updates."
+    "Hardens backend startup and recovery to prevent Nginx being left on a 502 Bad Gateway after an update.",
+    "Requires the VeloraOS backend to remain active and pass repeated health checks before an update is committed.",
+    "Captures backend systemd status and journal output when deployment fails, then restores the previous installation.",
+    "Adds a standalone Backend Rescue script for installations currently showing 502 Bad Gateway.",
+    "Preserves persistent TLS identity, Local CA download fixes, Chat stability, model intelligence and PWA support."
   ],
   "rebootRequired": false
 }
