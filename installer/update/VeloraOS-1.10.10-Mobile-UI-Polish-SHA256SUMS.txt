@@ -1,0 +1,3 @@
+9ae83e23293a7db5f1d46ea6c6ebe2dbc1778d45f9fc320a21aa25b89ba69528  installer/current/VeloraOS-Install-1.10.10-Mobile-UI-Polish.sh
+6b7e467beb18f2c974fd7ee28eaee889b25108c8b0c40a3a59a3cbbf986abfe2  installer/update/VeloraOS-Update-1.10.10-Mobile-UI-Polish.sh
+32af96374a3c8810a46ad23687e185459a1562b06e8aea9d1e62fa82a50753f8  installer/update/latest.json

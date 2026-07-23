@@ -1,15 +1,15 @@
 {
-  "version": "1.10.9",
+  "version": "1.10.10",
   "publishedAt": "2026-07-23T00:00:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.9-HTTPS-PWA.sh",
-  "sha256": "36cb9571cac6ef703415412a7400031a7916b765af192915c5079fc528ae0787",
-  "title": "VeloraOS 1.10.9 - HTTPS & Trusted Local PWA",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.10-Mobile-UI-Polish.sh",
+  "sha256": "6b7e467beb18f2c974fd7ee28eaee889b25108c8b0c40a3a59a3cbbf986abfe2",
+  "title": "VeloraOS 1.10.10 - Mobile UI Polish",
   "releaseNotes": [
-    "Adds HTTPS by default using a persistent VeloraOS Local CA and per-device certificate.",
-    "Moves the application backend to localhost and serves the full VeloraOS site through Nginx on HTTPS port 443.",
-    "Redirects HTTP port 80 and historical VeloraOS port 8099 to HTTPS for existing bookmarks and upgraded systems.",
-    "Adds a downloadable VeloraOS Local CA certificate so phones and computers can trust the appliance once for PWA installation.",
-    "Preserves accounts, chats, settings, installed models, notifications, licensing, device identity, TLS identity and secure rollback updates."
+    "Adds a fixed mobile bottom navigation bar for Home, Chat, Models and Settings.",
+    "Simplifies the mobile header so desktop navigation and status controls no longer stack on phones.",
+    "Removes the visible Skip to main content button while retaining hidden accessibility status and focus behaviour.",
+    "Fixes Apple Home Screen icon discovery with dedicated opaque touch icons and root fallback routes.",
+    "Preserves HTTPS, trusted local CA, PWA support, accounts, chats, models, notifications, licensing and secure rollback updates."
   ],
   "rebootRequired": false
 }
