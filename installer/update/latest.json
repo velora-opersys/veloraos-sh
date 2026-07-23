@@ -1,16 +1,15 @@
 {
-  "version": "1.10.11",
+  "version": "1.10.12",
   "publishedAt": "2026-07-23T00:00:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.11-Background-Jobs-Secure-Mobile.sh",
-  "sha256": "3277dd662f7ea7190a9bb03803ac5eef4e980b132db048b617c33a6a1ac64564",
-  "title": "VeloraOS 1.10.11 - Background Jobs & Secure Mobile",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.12-Model-Intelligence.sh",
+  "sha256": "3b0788165cf72c765d0dac6f3d293eb3017afdea84daba23f3f0bad23c90c0ef",
+  "title": "VeloraOS 1.10.12 - Model Intelligence",
   "releaseNotes": [
-    "Adds Secure Mobile Access status and certificate trust instructions for iPhone/iPad, Android, Windows and macOS.",
-    "Adds certificate download, expiry and SHA-256 fingerprint information in System Info.",
-    "Moves Chat generation to server-owned background jobs so replies continue when Chat is left or the browser/PWA is closed.",
-    "Reconnects active and completed model downloads after navigation, refresh or reopening the app.",
-    "Adds background Chat and model completion/failure notifications.",
-    "Preserves HTTPS, local CA trust, accounts, chats, installed models, licensing, device identity and secure rollback updates."
+    "Adds VeloraOS Automatic, Tiny, Quick and Deep Thoughts choices to Chat.",
+    "VeloraOS Tiny uses tinyllama:1.1b for basic operations; Quick and Deep Thoughts use qwen3:4b with different reasoning profiles.",
+    "Automatic mode intelligently routes each prompt to an installed VeloraOS profile and shows which one it selected.",
+    "Manual model selection always overrides Automatic routing.",
+    "Preserves background jobs, HTTPS, PWA support, accounts, chats, licensing and secure rollback updates."
   ],
   "rebootRequired": false
 }

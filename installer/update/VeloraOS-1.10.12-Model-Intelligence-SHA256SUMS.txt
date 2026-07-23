@@ -1,0 +1,3 @@
+790a793d434e21f314bea363e88f32701199be33017bb11c914da00531e3207b  installer/current/VeloraOS-Install-1.10.12-Model-Intelligence.sh
+3b0788165cf72c765d0dac6f3d293eb3017afdea84daba23f3f0bad23c90c0ef  installer/update/VeloraOS-Update-1.10.12-Model-Intelligence.sh
+e30f3e22d9daf155e4a3ae41fe18fd94ad2b2c1f99d7686dba210bd56ed7f99f  installer/update/latest.json
