@@ -1,15 +1,15 @@
 {
-  "version": "1.10.21",
+  "version": "1.10.23",
   "publishedAt": "2026-07-23T00:00:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.21-Public-CA-Access-Hotfix.sh",
-  "sha256": "78d6b6d476237fdc6dbec637e12811e846568ba1763c1aa8a58da8f8a3d0120b",
-  "title": "VeloraOS 1.10.21 - Public CA Access Hotfix",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.23-Full-Installer-TLS-Staging-Hotfix.sh",
+  "sha256": "7da895fef4dc56d4abb9b1f7075d285bdd884c870e3628a4bad636a04778f5ca",
+  "title": "VeloraOS 1.10.23 - Full Installer TLS Staging Hotfix",
   "releaseNotes": [
-    "Fixes HTTP 403 when Nginx serves the VeloraOS Local CA certificate.",
-    "Moves the public certificate outside the protected /var/lib/veloraos private state tree while keeping private TLS keys locked down.",
-    "Adds updater checks for public certificate directory traversal and file readability before the release is committed.",
-    "Keeps the HTTPS certificate download health check so future permission regressions roll back safely.",
-    "Preserves persistent TLS identity, seamless update reconnect, backend recovery, Chat stability and model intelligence."
+    "Fixes the full installer failing during atomic deployment because the TLS setup helper was absent from the staged installation.",
+    "Stages bin/veloraos-tls-setup explicitly before deployment.",
+    "Adds a hard staged-file inventory check so required deployment files cannot be missing silently.",
+    "Adds TLS helper syntax validation before any live installation files are replaced.",
+    "Preserves Public CA access, persistent TLS identity, seamless update reconnect and backend recovery."
   ],
   "rebootRequired": false
 }
