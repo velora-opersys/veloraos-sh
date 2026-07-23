@@ -1,15 +1,16 @@
 {
-  "version": "1.10.10",
+  "version": "1.10.11",
   "publishedAt": "2026-07-23T00:00:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.10-Mobile-UI-Polish.sh",
-  "sha256": "6b7e467beb18f2c974fd7ee28eaee889b25108c8b0c40a3a59a3cbbf986abfe2",
-  "title": "VeloraOS 1.10.10 - Mobile UI Polish",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.11-Background-Jobs-Secure-Mobile.sh",
+  "sha256": "3277dd662f7ea7190a9bb03803ac5eef4e980b132db048b617c33a6a1ac64564",
+  "title": "VeloraOS 1.10.11 - Background Jobs & Secure Mobile",
   "releaseNotes": [
-    "Adds a fixed mobile bottom navigation bar for Home, Chat, Models and Settings.",
-    "Simplifies the mobile header so desktop navigation and status controls no longer stack on phones.",
-    "Removes the visible Skip to main content button while retaining hidden accessibility status and focus behaviour.",
-    "Fixes Apple Home Screen icon discovery with dedicated opaque touch icons and root fallback routes.",
-    "Preserves HTTPS, trusted local CA, PWA support, accounts, chats, models, notifications, licensing and secure rollback updates."
+    "Adds Secure Mobile Access status and certificate trust instructions for iPhone/iPad, Android, Windows and macOS.",
+    "Adds certificate download, expiry and SHA-256 fingerprint information in System Info.",
+    "Moves Chat generation to server-owned background jobs so replies continue when Chat is left or the browser/PWA is closed.",
+    "Reconnects active and completed model downloads after navigation, refresh or reopening the app.",
+    "Adds background Chat and model completion/failure notifications.",
+    "Preserves HTTPS, local CA trust, accounts, chats, installed models, licensing, device identity and secure rollback updates."
   ],
   "rebootRequired": false
 }

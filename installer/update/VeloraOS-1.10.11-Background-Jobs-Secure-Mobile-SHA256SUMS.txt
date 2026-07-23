@@ -1,0 +1,3 @@
+50f895a8537dcc03faa68dd4ff27ca02708fa7348c1ab410f1c91b6d56553727  installer/current/VeloraOS-Install-1.10.11-Background-Jobs-Secure-Mobile.sh
+3277dd662f7ea7190a9bb03803ac5eef4e980b132db048b617c33a6a1ac64564  installer/update/VeloraOS-Update-1.10.11-Background-Jobs-Secure-Mobile.sh
+c77b6982e13756498d3da5ac62f017237c6cf3a718c385b9db0b263cbaaaa1a0  installer/update/latest.json
