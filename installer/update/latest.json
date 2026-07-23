@@ -1,15 +1,15 @@
 {
-  "version": "1.10.19",
+  "version": "1.10.20",
   "publishedAt": "2026-07-23T00:00:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.19-Backend-Recovery.sh",
-  "sha256": "189f4b5b178eb3307963cad36e03ce72cd755e53a977dcdf3f994aec4070e126",
-  "title": "VeloraOS 1.10.19 - Backend Recovery",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.20-Seamless-Update-Reconnect.sh",
+  "sha256": "8e7323e5ca457c8d7f2a5d1e719239499a1eed23646a3cbefdf15961410ee269",
+  "title": "VeloraOS 1.10.20 - Seamless Update Reconnect",
   "releaseNotes": [
-    "Hardens backend startup and recovery to prevent Nginx being left on a 502 Bad Gateway after an update.",
-    "Requires the VeloraOS backend to remain active and pass repeated health checks before an update is committed.",
-    "Captures backend systemd status and journal output when deployment fails, then restores the previous installation.",
-    "Adds a standalone Backend Rescue script for installations currently showing 502 Bad Gateway.",
-    "Preserves persistent TLS identity, Local CA download fixes, Chat stability, model intelligence and PWA support."
+    "Treats temporary Nginx 502/503/504 responses during deployment as expected backend restart downtime instead of an update failure.",
+    "Keeps the update screen in Installing/Reconnecting state and automatically reconnects when the VeloraOS backend returns.",
+    "Prevents raw Nginx HTML error pages from being shown inside the update interface.",
+    "Only reports a failed update when the persisted VeloraOS update state records a real failure or another non-transient error occurs.",
+    "Preserves backend recovery, persistent TLS identity, Chat stability, model intelligence and PWA support."
   ],
   "rebootRequired": false
 }

@@ -1,0 +1,3 @@
+ba0ee9bc57236b1c26174625e28635b374f23386dd4d5ec182bbba77b22736b7  installer/current/VeloraOS-Install-1.10.20-Seamless-Update-Reconnect.sh
+8e7323e5ca457c8d7f2a5d1e719239499a1eed23646a3cbefdf15961410ee269  installer/update/VeloraOS-Update-1.10.20-Seamless-Update-Reconnect.sh
+739f75521a7ce7aae1549f0c1706b60826ac2cabbe75db2a27c56778b34dc075  installer/update/latest.json
