@@ -1,0 +1,3 @@
+6acb5c0a9682e56877d636ff99d9baa2250ca29d0d7a81a8afb030ff08e6b850  installer/current/VeloraOS-Install-1.10.18-Persistent-TLS-Hotfix.sh
+da549e174911c34687a639209114c41e49760595240d857da9a0857288e15281  installer/update/VeloraOS-Update-1.10.18-Persistent-TLS-Hotfix.sh
+5feee4a49fbb08935738a697b5f08ff81f752efcf26933000b57ab9c93495226  installer/update/latest.json

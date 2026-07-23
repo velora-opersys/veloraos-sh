@@ -1,15 +1,15 @@
 {
-  "version": "1.10.17",
+  "version": "1.10.18",
   "publishedAt": "2026-07-23T00:00:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.17-Chat-State-Stability.sh",
-  "sha256": "a76b2e3d4c641e386ae9fa21b3145144f031f9bf86834de902cdd406079ee17d",
-  "title": "VeloraOS 1.10.17 - Chat State Stability",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.18-Persistent-TLS-Hotfix.sh",
+  "sha256": "da549e174911c34687a639209114c41e49760595240d857da9a0857288e15281",
+  "title": "VeloraOS 1.10.18 - Persistent TLS Hotfix",
   "releaseNotes": [
-    "Fixes second and later Chat turns getting stuck after a completed background response.",
-    "Allows model selection to change during generation and applies the new selection to the next message without interrupting the current response.",
-    "Preserves the Chat viewport instead of forcing the conversation to the bottom on every state render.",
-    "Disables smooth auto-scroll and scroll anchoring that could cause top-to-bottom bouncing.",
-    "Preserves thinking dots, model intelligence, background jobs, HTTPS, PWA support and secure rollback updates."
+    "Stops normal VeloraOS updates from regenerating a valid HTTPS device certificate and private key.",
+    "Keeps the VeloraOS Local CA stable across software updates and adds an updater safety check that rejects accidental CA rotation.",
+    "Fixes 403 Forbidden when downloading the Local CA certificate by serving a safe public copy outside the protected private-key directory.",
+    "Makes /veloraos-local-ca.crt available without account authentication so a new device can establish trust before signing in.",
+    "Preserves Chat stability, model intelligence, background jobs, PWA support and secure rollback updates."
   ],
   "rebootRequired": false
 }
