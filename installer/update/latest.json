@@ -1,15 +1,15 @@
 {
-  "version": "1.10.12",
+  "version": "1.10.13",
   "publishedAt": "2026-07-23T00:00:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.12-Model-Intelligence.sh",
-  "sha256": "3b0788165cf72c765d0dac6f3d293eb3017afdea84daba23f3f0bad23c90c0ef",
-  "title": "VeloraOS 1.10.12 - Model Intelligence",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.13-Chat-Stability-Hotfix.sh",
+  "sha256": "5f595305b75106846796775417f0f5c03882f0ab2d07a92b4488edc9cee210d9",
+  "title": "VeloraOS 1.10.13 - Chat Stability Hotfix",
   "releaseNotes": [
-    "Adds VeloraOS Automatic, Tiny, Quick and Deep Thoughts choices to Chat.",
-    "VeloraOS Tiny uses tinyllama:1.1b for basic operations; Quick and Deep Thoughts use qwen3:4b with different reasoning profiles.",
-    "Automatic mode intelligently routes each prompt to an installed VeloraOS profile and shows which one it selected.",
-    "Manual model selection always overrides Automatic routing.",
-    "Preserves background jobs, HTTPS, PWA support, accounts, chats, licensing and secure rollback updates."
+    "Fixes Internal Server Error for existing chats that still reference legacy model IDs.",
+    "Normalizes stale and unknown model selections into the new Automatic/Tiny/Quick/Deep Thoughts profiles safely.",
+    "Stops background polling from rebuilding the entire Chat page every 2.5 seconds.",
+    "Tightens mobile and desktop Chat viewport/scroll containment to eliminate lifting and jumping.",
+    "Preserves model intelligence, background jobs, HTTPS, PWA support, accounts, licensing and secure rollback updates."
   ],
   "rebootRequired": false
 }

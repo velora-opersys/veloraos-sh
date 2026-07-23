@@ -1,0 +1,3 @@
+50389308c491540521122f98601fc4a385ab9b95c3b97a013a7b5a477b2e3afc  installer/current/VeloraOS-Install-1.10.13-Chat-Stability-Hotfix.sh
+5f595305b75106846796775417f0f5c03882f0ab2d07a92b4488edc9cee210d9  installer/update/VeloraOS-Update-1.10.13-Chat-Stability-Hotfix.sh
+a464e598541393ef74dd2a92b2a92b4d18c78e718c2c72496c70f14a75184fde  installer/update/latest.json
