@@ -1,0 +1,3 @@
+85811d7b46ce9f6fa9d198d5ae1f78fb7c8bffd690419bc60cbd431a733815cc  installer/current/VeloraOS-Install-1.10.7-Release-Readiness.sh
+aa5ad999ab3cc5fc9e0fecc037b7a2e0ab7402293cddc00f01bd1acd1e1a9026  installer/update/VeloraOS-Update-1.10.7-Release-Readiness.sh
+cdfd8d19a8c4b68a8e495197a144a9e05d24c0ffb8a3d2c744da4c87ccb44d35  installer/update/latest.json

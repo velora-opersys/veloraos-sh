@@ -1,14 +1,15 @@
 {
-  "version": "1.10.6",
+  "version": "1.10.7",
   "publishedAt": "2026-07-22T00:00:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.6-Notifications.sh",
-  "sha256": "e1732ea80ecc9790c133cdfba6f9551f2253f28b5b4aebe0cbaf22e531b3bb33",
-  "title": "VeloraOS 1.10.6 - Notifications",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.7-Release-Readiness.sh",
+  "sha256": "aa5ad999ab3cc5fc9e0fecc037b7a2e0ab7402293cddc00f01bd1acd1e1a9026",
+  "title": "VeloraOS 1.10.7 - Release Readiness",
   "releaseNotes": [
-    "Adds a Notifications area with a bell and unread badge in the VeloraOS header.",
-    "New VeloraOS update alerts now appear in Notifications with a direct link to System Updates.",
-    "Update failures and active update progress can also surface as system notifications.",
-    "Preserves System Info, accounts, chats, settings, installed models, licensing, device identity and secure rollback updates."
+    "Expands Notifications into persistent local history for updates, model downloads and setup completion.",
+    "Adds model download storage preflight, Retry and real Cancel support for active Ollama downloads.",
+    "Adds a polished VeloraOS-is-ready completion screen to first-run setup.",
+    "Adds a System Info health overview for version, CPU, memory, disk, GPU, Ollama, installed models and licence status.",
+    "Preserves accounts, chats, settings, installed models, licensing, device identity, secure update verification and rollback."
   ],
   "rebootRequired": false
 }
