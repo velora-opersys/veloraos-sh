@@ -1,0 +1,3 @@
+4a1116be733c383985e3155f23aea240fab6708baf8fc38b806325a4e9deff62  installer/current/VeloraOS-Install-1.10.17-Chat-State-Stability.sh
+a76b2e3d4c641e386ae9fa21b3145144f031f9bf86834de902cdd406079ee17d  installer/update/VeloraOS-Update-1.10.17-Chat-State-Stability.sh
+2942c5d3299746de41082a232118611ba71df9cf0bf5780a515b8b83090d76bc  installer/update/latest.json
