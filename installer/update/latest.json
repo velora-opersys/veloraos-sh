@@ -1,15 +1,15 @@
 {
-  "version": "1.10.20",
+  "version": "1.10.21",
   "publishedAt": "2026-07-23T00:00:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.20-Seamless-Update-Reconnect.sh",
-  "sha256": "8e7323e5ca457c8d7f2a5d1e719239499a1eed23646a3cbefdf15961410ee269",
-  "title": "VeloraOS 1.10.20 - Seamless Update Reconnect",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.21-Public-CA-Access-Hotfix.sh",
+  "sha256": "78d6b6d476237fdc6dbec637e12811e846568ba1763c1aa8a58da8f8a3d0120b",
+  "title": "VeloraOS 1.10.21 - Public CA Access Hotfix",
   "releaseNotes": [
-    "Treats temporary Nginx 502/503/504 responses during deployment as expected backend restart downtime instead of an update failure.",
-    "Keeps the update screen in Installing/Reconnecting state and automatically reconnects when the VeloraOS backend returns.",
-    "Prevents raw Nginx HTML error pages from being shown inside the update interface.",
-    "Only reports a failed update when the persisted VeloraOS update state records a real failure or another non-transient error occurs.",
-    "Preserves backend recovery, persistent TLS identity, Chat stability, model intelligence and PWA support."
+    "Fixes HTTP 403 when Nginx serves the VeloraOS Local CA certificate.",
+    "Moves the public certificate outside the protected /var/lib/veloraos private state tree while keeping private TLS keys locked down.",
+    "Adds updater checks for public certificate directory traversal and file readability before the release is committed.",
+    "Keeps the HTTPS certificate download health check so future permission regressions roll back safely.",
+    "Preserves persistent TLS identity, seamless update reconnect, backend recovery, Chat stability and model intelligence."
   ],
   "rebootRequired": false
 }
