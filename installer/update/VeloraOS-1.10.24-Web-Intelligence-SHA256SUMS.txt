@@ -1,0 +1,3 @@
+46421954a799bc824a1d179ac3a53916ce885063485c0fb2b0b1525a6dbbd4ab  installer/current/VeloraOS-Install-1.10.24-Web-Intelligence.sh
+3b07ff3429c3b2bd405c2db68c713c9805fccc838f3bb171d8d320524cf1c8af  installer/update/VeloraOS-Update-1.10.24-Web-Intelligence.sh
+4882638cf32c9eb7dc10e43481de37b1e946a8d88b5d4a29712f4e5159598995  installer/update/latest.json

@@ -1,15 +1,17 @@
 {
-  "version": "1.10.23",
+  "version": "1.10.24",
   "publishedAt": "2026-07-23T00:00:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.23-Full-Installer-TLS-Staging-Hotfix.sh",
-  "sha256": "7da895fef4dc56d4abb9b1f7075d285bdd884c870e3628a4bad636a04778f5ca",
-  "title": "VeloraOS 1.10.23 - Full Installer TLS Staging Hotfix",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.24-Web-Intelligence.sh",
+  "sha256": "3b07ff3429c3b2bd405c2db68c713c9805fccc838f3bb171d8d320524cf1c8af",
+  "title": "VeloraOS 1.10.24 - Web Intelligence",
   "releaseNotes": [
-    "Fixes the full installer failing during atomic deployment because the TLS setup helper was absent from the staged installation.",
-    "Stages bin/veloraos-tls-setup explicitly before deployment.",
-    "Adds a hard staged-file inventory check so required deployment files cannot be missing silently.",
-    "Adds TLS helper syntax validation before any live installation files are replaced.",
-    "Preserves Public CA access, persistent TLS identity, seamless update reconnect and backend recovery."
+    "Adds Web Intelligence to Automatic, Tiny, Quick and Deep Thoughts through the shared https://web-api.veloraos.co.uk search service.",
+    "Adds per-chat Web Auto, Web On and Web Off controls.",
+    "Securely retrieves public web results with protections against localhost/private-network access, unsafe redirects, credential URLs and non-standard ports.",
+    "Shows live web-research progress without rebuilding the Chat viewport.",
+    "Stores and displays numbered web sources so model citations such as [1] and [2] map to visible source cards.",
+    "Only the latest search query is sent to the shared service; chat history and Ollama inference remain local.",
+    "Falls back to local model knowledge if Web Intelligence is unavailable."
   ],
   "rebootRequired": false
 }
