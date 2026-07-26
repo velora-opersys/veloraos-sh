@@ -1,0 +1,3 @@
+47ffb1336c22c70e38dd1b6438c7050b7ebdc1f948ae47ed5d4f24dd17bffe46  installer/current/VeloraOS-Install-1.10.38-Chat-Delivery-Reliability-Hotfix.sh
+94012ef695fb7261eb5263eca1bd776fcdd4c90000593afbe2e3d4670960ba29  installer/update/VeloraOS-Update-1.10.38-Chat-Delivery-Reliability-Hotfix.sh
+6544e7ffa0229b424fce56822c0e5ea8cdb6bb48e860cf40392bb26a0c0c0a92  installer/update/latest.json

@@ -1,16 +1,16 @@
 {
-  "version": "1.10.37",
+  "version": "1.10.38",
   "publishedAt": "2026-07-26T00:00:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.37-Qwen25-Runtime-Stability-Hotfix.sh",
-  "sha256": "f446b2a89e324e7f60276605386e7c6a4fe5d1e66f736561b58815f7487d295d",
-  "title": "VeloraOS 1.10.37 - Qwen2.5 Runtime Stability Hotfix",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.38-Chat-Delivery-Reliability-Hotfix.sh",
+  "sha256": "94012ef695fb7261eb5263eca1bd776fcdd4c90000593afbe2e3d4670960ba29",
+  "title": "VeloraOS 1.10.38 - Chat Delivery Reliability Hotfix",
   "releaseNotes": [
-    "Fixes the first real Qwen2.5 3B turn appearing to hang after an instant greeting.",
-    "Uses the standard Ollama chat request for Qwen2.5 instead of sending thinking-model controls.",
-    "Keeps short prompts fast with adaptive output budgets even when Cosmic Reasoning is set high.",
-    "Adds bounded model-call watchdogs so a stuck Ollama request cannot leave Chat locked for many minutes.",
-    "Surfaces model-call failures inline and unlocks Chat immediately for a retry.",
-    "Expands instant social handling for polite variants such as asking how VeloraOS is."
+    "Fixes completed model responses occasionally disappearing instead of being appended to Chat.",
+    "Uses stable per-user-turn IDs and per-background-task assistant IDs instead of fragile whole-conversation equality checks.",
+    "Retains edit/resend safety by rejecting late responses after a newer user turn or an existing assistant answer.",
+    "Adds browser-side recovery from the completed background task payload if a harmless persistence race occurs.",
+    "Clears stale working banners when generation completes and prevents duplicate recovered replies.",
+    "Preserves Qwen2.5 3B, Coding mode, adaptive budgets, Ollama watchdogs, automatic continuation and hidden-reasoning protection."
   ],
   "rebootRequired": false
 }
