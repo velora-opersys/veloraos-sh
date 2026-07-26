@@ -1,15 +1,15 @@
 {
-  "version": "1.10.31",
+  "version": "1.10.32",
   "publishedAt": "2026-07-26T00:00:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.31-Instant-Chat-Fast-Path.sh",
-  "sha256": "8988165f51921d617fd07565eae90b0d19239f53d78647007a9d80a9101610a4",
-  "title": "VeloraOS 1.10.31 - Instant Chat Fast Path",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.32-Hidden-Reasoning-Privacy-Hotfix.sh",
+  "sha256": "d22f598834720b5b2de7b1ada4e6c8e4f4c569dc63fbf861c6778e805b866cff",
+  "title": "VeloraOS 1.10.32 - Hidden Reasoning Privacy Hotfix",
   "releaseNotes": [
-    "Fixes simple greetings such as hello taking tens of seconds on Qwen3.",
-    "Automatic mode explicitly routes trivial conversational prompts to VeloraOS Tiny and bypasses Web Intelligence.",
-    "Disables Qwen3 thinking for trivial Tiny responses where supported and caps output to 128 tokens.",
-    "Keeps the selected Ollama chat model resident for 30 minutes to reduce repeated cold-load latency.",
-    "Preserves full reasoning behaviour for normal questions, Coding and Deep Thoughts."
+    "Stops local reasoning models from exposing internal thinking, analysis or chain-of-thought text in Chat.",
+    "Sanitizes model output server-side before it is saved and ignores dedicated Ollama reasoning fields.",
+    "Adds a frontend safety filter so previously saved chats containing leaked reasoning no longer display it.",
+    "Strips historical hidden reasoning before assistant messages are reused as context in later turns.",
+    "Preserves Cosmic Reasoning as an internal quality control without exposing private reasoning."
   ],
   "rebootRequired": false
 }
