@@ -1,0 +1,3 @@
+b0892be131ce659d28507a205e4135b7b6785a926d5ae65b38483de3bd9aea20  installer/current/VeloraOS-Install-1.10.27-Hardware-Aware-Coding.sh
+78974000d20e0e54b388b7b3be13c3ce956eb015bf13de94a62842bfc7237a53  installer/update/VeloraOS-Update-1.10.27-Hardware-Aware-Coding.sh
+5351cb143ad830dbc84263461a0b5276d78fc521e8193a4e30a9a839a0dd1ead  installer/update/latest.json

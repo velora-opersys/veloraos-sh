@@ -1,15 +1,17 @@
 {
-  "version": "1.10.26",
+  "version": "1.10.27",
   "publishedAt": "2026-07-26T00:00:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.26-Automatic-Web-Lockdown.sh",
-  "sha256": "b80bb515e601f5bd3417a022516d14f322d25346e217ca67106e8b276d7fa4f1",
-  "title": "VeloraOS 1.10.26 - Automatic Web + Lockdown Mode",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.27-Hardware-Aware-Coding.sh",
+  "sha256": "78974000d20e0e54b388b7b3be13c3ce956eb015bf13de94a62842bfc7237a53",
+  "title": "VeloraOS 1.10.27 - Hardware-Aware Coding",
   "releaseNotes": [
-    "VeloraOS now decides automatically when web research is useful; the Web Auto, Web On and Web Off selector has been removed.",
-    "Adds a shield-based Lockdown mode persisted in each user account settings.",
-    "Lockdown is enforced server-side and prevents all shared Web API searches and external page fetching while enabled.",
-    "Removes visible web source cards, external source links and numbered citation styling from Chat responses.",
-    "Preserves fast parallel web research, privacy safeguards, SSRF protection, empty-answer recovery and local Ollama inference."
+    "Adds a separate VeloraOS Coding option to Chat.",
+    "VeloraOS Coding automatically selects the strongest installed programming model suitable for the detected RAM and acceleration capability.",
+    "Adds coding tiers from Qwen2.5-Coder 0.5B, 1.5B, 3B, 7B and 14B through Qwen3-Coder 30B on high-memory accelerated systems.",
+    "Marks the recommended coding model for the current machine on the Models page.",
+    "Keeps Coding usable through a specialist fallback profile when the recommended dedicated coder has not yet been installed.",
+    "Coding mode uses a dedicated software-engineering instruction profile focused on runnable code, debugging correctness, secure defaults and minimal regressions.",
+    "Automatic web research and Lockdown mode remain available with the Coding profile."
   ],
   "rebootRequired": false
 }
