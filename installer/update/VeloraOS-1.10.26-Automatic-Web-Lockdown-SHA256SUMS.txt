@@ -1,0 +1,3 @@
+3a4bdc317c56d8900dbad62cdb11231284a216f0516c1b2df633fd1af2d34da7  installer/current/VeloraOS-Install-1.10.26-Automatic-Web-Lockdown.sh
+b80bb515e601f5bd3417a022516d14f322d25346e217ca67106e8b276d7fa4f1  installer/update/VeloraOS-Update-1.10.26-Automatic-Web-Lockdown.sh
+8cf6d5f390b56fca698f0fa181a64646c9444a0e4a544ed7a6fe67b3f9fd9314  installer/update/latest.json
