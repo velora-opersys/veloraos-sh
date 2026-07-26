@@ -1,16 +1,16 @@
 {
-  "version": "1.10.36",
+  "version": "1.10.37",
   "publishedAt": "2026-07-26T00:00:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.36-Single-Main-Model-Coding-Toggle.sh",
-  "sha256": "df11517656fb193e42e45ad5254eaf9bcce5495b82ef7be29105d5c6fc507771",
-  "title": "VeloraOS 1.10.36 - Single Main Model + Coding Toggle",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.37-Qwen25-Runtime-Stability-Hotfix.sh",
+  "sha256": "f446b2a89e324e7f60276605386e7c6a4fe5d1e66f736561b58815f7487d295d",
+  "title": "VeloraOS 1.10.37 - Qwen2.5 Runtime Stability Hotfix",
   "releaseNotes": [
-    "Simplifies normal Chat to one main Qwen2.5 3B runtime instead of Automatic, Tiny, Quick and Deep Thoughts.",
-    "Adds a Coding switch that automatically selects the strongest sensible installed coding model for the detected hardware.",
-    "Keeps older general models only as migration fallbacks while always preferring Qwen2.5 3B once installed.",
-    "Makes Cosmic Reasoning independent from model choice and applies the selected 1-5 value to backend generation.",
-    "Replaces the mobile tap-to-cycle Cosmic Reasoning control with a real slider and proper Coding/Lockdown switches.",
-    "Preserves reliable response continuation, hidden-reasoning protection, Knowledge and automatic Web Intelligence."
+    "Fixes the first real Qwen2.5 3B turn appearing to hang after an instant greeting.",
+    "Uses the standard Ollama chat request for Qwen2.5 instead of sending thinking-model controls.",
+    "Keeps short prompts fast with adaptive output budgets even when Cosmic Reasoning is set high.",
+    "Adds bounded model-call watchdogs so a stuck Ollama request cannot leave Chat locked for many minutes.",
+    "Surfaces model-call failures inline and unlocks Chat immediately for a retry.",
+    "Expands instant social handling for polite variants such as asking how VeloraOS is."
   ],
   "rebootRequired": false
 }
