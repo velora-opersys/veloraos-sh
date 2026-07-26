@@ -1,0 +1,3 @@
+a0924acd7050e0bb2c78259f11f75c3ce3db402ebf95e782aae38be4ca833b65  installer/current/VeloraOS-Install-1.10.31-Instant-Chat-Fast-Path.sh
+8988165f51921d617fd07565eae90b0d19239f53d78647007a9d80a9101610a4  installer/update/VeloraOS-Update-1.10.31-Instant-Chat-Fast-Path.sh
+c4263fe5d2f2661ceffae728557692b5c3979c616a3c4d57f855d2b88763a5db  installer/update/latest.json

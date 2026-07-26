@@ -1,16 +1,15 @@
 {
-  "version": "1.10.30",
+  "version": "1.10.31",
   "publishedAt": "2026-07-26T00:00:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.30-Mobile-Sheet-Update-Reconnect-Hotfix.sh",
-  "sha256": "abf41f0118201ffed435959484e07631693e016c313ee4195ab1d3295e29aaba",
-  "title": "VeloraOS 1.10.30 - Mobile Sheet + Update Reconnect Hotfix",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.31-Instant-Chat-Fast-Path.sh",
+  "sha256": "8988165f51921d617fd07565eae90b0d19239f53d78647007a9d80a9101610a4",
+  "title": "VeloraOS 1.10.31 - Instant Chat Fast Path",
   "releaseNotes": [
-    "Fixes the mobile Chat plus menu showing only a blurred or dimmed page instead of the controls sheet.",
-    "Removes backdrop blur and forces the mobile controls sheet above the dim overlay with reliable hidden-state rules.",
-    "Fixes successful updates getting stuck on Restarting Web UI or repeatedly asking for another Web UI restart.",
-    "Successful non-reboot updates now finish automatically after reconnect and perform at most one cache-busting reload.",
-    "Changes the completed update action to Done and records a final ready state in the dedicated update service.",
-    "Preserves Knowledge, hardware-aware Coding, automatic web research and Lockdown mode."
+    "Fixes simple greetings such as hello taking tens of seconds on Qwen3.",
+    "Automatic mode explicitly routes trivial conversational prompts to VeloraOS Tiny and bypasses Web Intelligence.",
+    "Disables Qwen3 thinking for trivial Tiny responses where supported and caps output to 128 tokens.",
+    "Keeps the selected Ollama chat model resident for 30 minutes to reduce repeated cold-load latency.",
+    "Preserves full reasoning behaviour for normal questions, Coding and Deep Thoughts."
   ],
   "rebootRequired": false
 }
