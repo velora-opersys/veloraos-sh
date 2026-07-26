@@ -1,15 +1,14 @@
 {
-  "version": "1.10.32",
+  "version": "1.10.34",
   "publishedAt": "2026-07-26T00:00:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.32-Hidden-Reasoning-Privacy-Hotfix.sh",
-  "sha256": "d22f598834720b5b2de7b1ada4e6c8e4f4c569dc63fbf861c6778e805b866cff",
-  "title": "VeloraOS 1.10.32 - Hidden Reasoning Privacy Hotfix",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.34-Final-Answer-Only-Hotfix.sh",
+  "sha256": "1f1d44cd24f6aee73d4bde9a6182c34ff2d15020cfcc67042b6ed63d813b8481",
+  "title": "VeloraOS 1.10.34 - Final Answer Only Hotfix",
   "releaseNotes": [
-    "Stops local reasoning models from exposing internal thinking, analysis or chain-of-thought text in Chat.",
-    "Sanitizes model output server-side before it is saved and ignores dedicated Ollama reasoning fields.",
-    "Adds a frontend safety filter so previously saved chats containing leaked reasoning no longer display it.",
-    "Strips historical hidden reasoning before assistant messages are reused as context in later turns.",
-    "Preserves Cosmic Reasoning as an internal quality control without exposing private reasoning."
+    "Stops Qwen models from narrating internal reasoning directly inside normal answer text.",
+    "Disables thinking for every user-facing Ollama generation while preserving Cosmic Reasoning answer-depth controls.",
+    "Uses Qwen /no_think and final-answer-only instructions on older Ollama builds.",
+    "Blocks plain-text model self-talk before persistence and hides leaked self-talk already present in older chats."
   ],
   "rebootRequired": false
 }
