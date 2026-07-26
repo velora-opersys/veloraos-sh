@@ -1,14 +1,16 @@
 {
-  "version": "1.10.34",
+  "version": "1.10.36",
   "publishedAt": "2026-07-26T00:00:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.34-Final-Answer-Only-Hotfix.sh",
-  "sha256": "1f1d44cd24f6aee73d4bde9a6182c34ff2d15020cfcc67042b6ed63d813b8481",
-  "title": "VeloraOS 1.10.34 - Final Answer Only Hotfix",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.36-Single-Main-Model-Coding-Toggle.sh",
+  "sha256": "df11517656fb193e42e45ad5254eaf9bcce5495b82ef7be29105d5c6fc507771",
+  "title": "VeloraOS 1.10.36 - Single Main Model + Coding Toggle",
   "releaseNotes": [
-    "Stops Qwen models from narrating internal reasoning directly inside normal answer text.",
-    "Disables thinking for every user-facing Ollama generation while preserving Cosmic Reasoning answer-depth controls.",
-    "Uses Qwen /no_think and final-answer-only instructions on older Ollama builds.",
-    "Blocks plain-text model self-talk before persistence and hides leaked self-talk already present in older chats."
+    "Simplifies normal Chat to one main Qwen2.5 3B runtime instead of Automatic, Tiny, Quick and Deep Thoughts.",
+    "Adds a Coding switch that automatically selects the strongest sensible installed coding model for the detected hardware.",
+    "Keeps older general models only as migration fallbacks while always preferring Qwen2.5 3B once installed.",
+    "Makes Cosmic Reasoning independent from model choice and applies the selected 1-5 value to backend generation.",
+    "Replaces the mobile tap-to-cycle Cosmic Reasoning control with a real slider and proper Coding/Lockdown switches.",
+    "Preserves reliable response continuation, hidden-reasoning protection, Knowledge and automatic Web Intelligence."
   ],
   "rebootRequired": false
 }
