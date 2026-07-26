@@ -1,17 +1,16 @@
 {
-  "version": "1.10.27",
+  "version": "1.10.28",
   "publishedAt": "2026-07-26T00:00:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.27-Hardware-Aware-Coding.sh",
-  "sha256": "78974000d20e0e54b388b7b3be13c3ce956eb015bf13de94a62842bfc7237a53",
-  "title": "VeloraOS 1.10.27 - Hardware-Aware Coding",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.28-Workspaces-Developer-Tools-Knowledge.sh",
+  "sha256": "477a22c3ec3f0907948e2017e579f1a48d974c1e4ea526b21b6ba800f5f2bdfd",
+  "title": "VeloraOS 1.10.28 - Workspaces, Developer Tools, Git and Knowledge",
   "releaseNotes": [
-    "Adds a separate VeloraOS Coding option to Chat.",
-    "VeloraOS Coding automatically selects the strongest installed programming model suitable for the detected RAM and acceleration capability.",
-    "Adds coding tiers from Qwen2.5-Coder 0.5B, 1.5B, 3B, 7B and 14B through Qwen3-Coder 30B on high-memory accelerated systems.",
-    "Marks the recommended coding model for the current machine on the Models page.",
-    "Keeps Coding usable through a specialist fallback profile when the recommended dedicated coder has not yet been installed.",
-    "Coding mode uses a dedicated software-engineering instruction profile focused on runnable code, debugging correctness, secure defaults and minimal regressions.",
-    "Automatic web research and Lockdown mode remain available with the Coding profile."
+    "Adds private per-account Workspaces with a confined file tree, editor, uploads, search and reviewed writes.",
+    "Adds safe test, lint and build tools through a fixed command allowlist with timeouts and no arbitrary shell access.",
+    "Adds local Git status, diff, initialization, staging and reviewed commits; Git push is intentionally not included.",
+    "Adds a private local Knowledge library with ranked search across text, Markdown, JSON, source files and PDFs when pdftotext is installed.",
+    "Adds a unified Workspaces page for project files, tests, Git review and Knowledge search.",
+    "Preserves hardware-aware Coding, automatic web research and Lockdown mode."
   ],
   "rebootRequired": false
 }
