@@ -1,17 +1,17 @@
 {
-  "version": "1.10.24",
-  "publishedAt": "2026-07-23T00:00:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.24-Web-Intelligence.sh",
-  "sha256": "3b07ff3429c3b2bd405c2db68c713c9805fccc838f3bb171d8d320524cf1c8af",
-  "title": "VeloraOS 1.10.24 - Web Intelligence",
+  "version": "1.10.25",
+  "publishedAt": "2026-07-25T00:00:00Z",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.25-Web-Intelligence-Performance-Hotfix.sh",
+  "sha256": "0c73caf895d2d7466a1aa0b9010626d0fd7a65f9936627513875dc4e7be898ad",
+  "title": "VeloraOS 1.10.25 - Web Intelligence Performance Hotfix",
   "releaseNotes": [
-    "Adds Web Intelligence to Automatic, Tiny, Quick and Deep Thoughts through the shared https://web-api.veloraos.co.uk search service.",
-    "Adds per-chat Web Auto, Web On and Web Off controls.",
-    "Securely retrieves public web results with protections against localhost/private-network access, unsafe redirects, credential URLs and non-standard ports.",
-    "Shows live web-research progress without rebuilding the Chat viewport.",
-    "Stores and displays numbered web sources so model citations such as [1] and [2] map to visible source cards.",
-    "Only the latest search query is sent to the shared service; chat history and Ollama inference remain local.",
-    "Falls back to local model knowledge if Web Intelligence is unavailable."
+    "Makes Web Auto and Web On faster by enriching only the strongest web results and fetching those pages concurrently.",
+    "Reduces page-fetch timeout to four seconds and keeps compact search snippets for every cited source.",
+    "Bounds web evidence to a smaller context so Qwen3 4B and 8B reach their final answer more reliably.",
+    "Fixes web-assisted chats that could save an empty assistant response while still displaying source cards.",
+    "Retries empty Qwen3 responses with an explicit final-answer pass and disables thinking where supported.",
+    "Guarantees a visible source-based fallback response if the local model still returns no final text.",
+    "Preserves Web Auto, Web On, Web Off, citations, privacy safeguards and SSRF protection."
   ],
   "rebootRequired": false
 }
