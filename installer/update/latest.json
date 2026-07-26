@@ -1,15 +1,16 @@
 {
-  "version": "1.10.29",
+  "version": "1.10.30",
   "publishedAt": "2026-07-26T00:00:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.29-Knowledge-Mobile-Chat-Cleanup.sh",
-  "sha256": "1252355307357140eb5a3c66a75f7b4ae86297f780a605e5f191c328db96bbc3",
-  "title": "VeloraOS 1.10.29 - Knowledge + Mobile Chat Cleanup",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.30-Mobile-Sheet-Update-Reconnect-Hotfix.sh",
+  "sha256": "abf41f0118201ffed435959484e07631693e016c313ee4195ab1d3295e29aaba",
+  "title": "VeloraOS 1.10.30 - Mobile Sheet + Update Reconnect Hotfix",
   "releaseNotes": [
-    "Removes the Workspaces project editor, command runner and Git interface.",
-    "Keeps local Knowledge as a dedicated VeloraOS-themed private per-account feature.",
-    "Cleans up mobile Chat with a single plus button for Cosmic Reasoning, Lockdown, exports and model selection.",
-    "Desktop Chat retains its full controls while mobile uses a compact touch-friendly action sheet.",
-    "Preserves hardware-aware Coding, automatic web research and persistent Lockdown mode."
+    "Fixes the mobile Chat plus menu showing only a blurred or dimmed page instead of the controls sheet.",
+    "Removes backdrop blur and forces the mobile controls sheet above the dim overlay with reliable hidden-state rules.",
+    "Fixes successful updates getting stuck on Restarting Web UI or repeatedly asking for another Web UI restart.",
+    "Successful non-reboot updates now finish automatically after reconnect and perform at most one cache-busting reload.",
+    "Changes the completed update action to Done and records a final ready state in the dedicated update service.",
+    "Preserves Knowledge, hardware-aware Coding, automatic web research and Lockdown mode."
   ],
   "rebootRequired": false
 }

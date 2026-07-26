@@ -1,0 +1,3 @@
+d613edaaa3f81d356e8d1521a3d69d85a71d84ab423ea1078f263897ecfa66f2  installer/current/VeloraOS-Install-1.10.30-Mobile-Sheet-Update-Reconnect-Hotfix.sh
+abf41f0118201ffed435959484e07631693e016c313ee4195ab1d3295e29aaba  installer/update/VeloraOS-Update-1.10.30-Mobile-Sheet-Update-Reconnect-Hotfix.sh
+0241e538313c2e6220f45e66e371ee055c220dcb5737b2451cb5ec44e23ba8ff  installer/update/latest.json
