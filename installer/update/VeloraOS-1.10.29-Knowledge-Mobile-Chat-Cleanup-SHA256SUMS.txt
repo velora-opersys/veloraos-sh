@@ -1,0 +1,3 @@
+062ab83ee28b1109756ce6894248b246a9fa12973026354f08ed5c588082f51c  installer/current/VeloraOS-Install-1.10.29-Knowledge-Mobile-Chat-Cleanup.sh
+1252355307357140eb5a3c66a75f7b4ae86297f780a605e5f191c328db96bbc3  installer/update/VeloraOS-Update-1.10.29-Knowledge-Mobile-Chat-Cleanup.sh
+12a5c24d9952191d0456ca3c80f61bce319372b13c0a72361d86fdcd328c6875  installer/update/latest.json

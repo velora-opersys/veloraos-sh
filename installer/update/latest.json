@@ -1,16 +1,15 @@
 {
-  "version": "1.10.28",
+  "version": "1.10.29",
   "publishedAt": "2026-07-26T00:00:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.28-Workspaces-Developer-Tools-Knowledge.sh",
-  "sha256": "477a22c3ec3f0907948e2017e579f1a48d974c1e4ea526b21b6ba800f5f2bdfd",
-  "title": "VeloraOS 1.10.28 - Workspaces, Developer Tools, Git and Knowledge",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.29-Knowledge-Mobile-Chat-Cleanup.sh",
+  "sha256": "1252355307357140eb5a3c66a75f7b4ae86297f780a605e5f191c328db96bbc3",
+  "title": "VeloraOS 1.10.29 - Knowledge + Mobile Chat Cleanup",
   "releaseNotes": [
-    "Adds private per-account Workspaces with a confined file tree, editor, uploads, search and reviewed writes.",
-    "Adds safe test, lint and build tools through a fixed command allowlist with timeouts and no arbitrary shell access.",
-    "Adds local Git status, diff, initialization, staging and reviewed commits; Git push is intentionally not included.",
-    "Adds a private local Knowledge library with ranked search across text, Markdown, JSON, source files and PDFs when pdftotext is installed.",
-    "Adds a unified Workspaces page for project files, tests, Git review and Knowledge search.",
-    "Preserves hardware-aware Coding, automatic web research and Lockdown mode."
+    "Removes the Workspaces project editor, command runner and Git interface.",
+    "Keeps local Knowledge as a dedicated VeloraOS-themed private per-account feature.",
+    "Cleans up mobile Chat with a single plus button for Cosmic Reasoning, Lockdown, exports and model selection.",
+    "Desktop Chat retains its full controls while mobile uses a compact touch-friendly action sheet.",
+    "Preserves hardware-aware Coding, automatic web research and persistent Lockdown mode."
   ],
   "rebootRequired": false
 }
