@@ -1,14 +1,16 @@
 {
-  "version": "1.10.45",
+  "version": "1.10.46",
   "publishedAt": "2026-07-27T00:00:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.45-Memory-Opt-In-Hotfix.sh",
-  "sha256": "e2a96c2cbcfc432299f8b5fcb9c022aa197f36f3bed67cb0006b7adc0d7cfee3",
-  "title": "VeloraOS 1.10.45 - Secondary User Memory Opt-In Hotfix",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.46-Automatic-Image-Vision-Routing.sh",
+  "sha256": "4c9ac2096f73c62409cde0bd6cdaa9b7a75cea81db9a9bf516c848cb78df3170",
+  "title": "VeloraOS 1.10.46 - Automatic Image & Vision Routing",
   "releaseNotes": [
-    "Fixes explicit remember requests not saving for secondary users whose Global Memory had not yet been enabled.",
-    "An explicit remember request now opts that account into Global Memory and saves the requested information immediately.",
-    "Passive automatic memory learning remains disabled until the user has explicitly opted in.",
-    "Memory remains strictly per-user and existing account settings are preserved."
+    "Detects images on the current user turn before Chat model routing.",
+    "Automatically routes image messages to an installed local vision model instead of Qwen2.5.",
+    "Prefers LLaVA 7B, falls back to Moondream, and supports other Ollama models that declare vision capability.",
+    "Vision routing is per-message, so later text-only turns return to the normal VeloraOS Main model.",
+    "Provides a clear install-vision-model message when no vision-capable local model is available.",
+    "Improves screenshot error analysis with dedicated instructions to read visible error text and avoid inventing unreadable details."
   ],
   "rebootRequired": false
 }

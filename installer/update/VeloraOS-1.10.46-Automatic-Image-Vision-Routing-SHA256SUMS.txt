@@ -1,0 +1,3 @@
+ec75cc0407ded0c533ee6b7c46f2b53df6c5d2a7b8e34b56a57bb426903c8907  installer/current/VeloraOS-Install-1.10.46-Automatic-Image-Vision-Routing.sh
+4c9ac2096f73c62409cde0bd6cdaa9b7a75cea81db9a9bf516c848cb78df3170  installer/update/VeloraOS-Update-1.10.46-Automatic-Image-Vision-Routing.sh
+d0fff210147e0131487ca8e00aa31d7ab77e75aecd523eb3a3ac79df854f4cf5  installer/update/latest.json
