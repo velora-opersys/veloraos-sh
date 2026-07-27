@@ -1,0 +1,3 @@
+a4e93c85093b0c3fb7da0ceca07706e8ca09d041df61db6401b300e336ea5bb4  installer/current/VeloraOS-Install-1.10.49-License-Soft-Lock.sh
+0ce69b5db928d7ddecdda1e70c002688e7b3872ea92dca87ab740fd46f5067fc  installer/update/VeloraOS-Update-1.10.49-License-Soft-Lock.sh
+3f38f271c0b38b1bb2b99f15d7ea8d8b63c900603d46dc810e1129baa675e139  installer/update/latest.json

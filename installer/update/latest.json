@@ -1,16 +1,16 @@
 {
-  "version": "1.10.48",
+  "version": "1.10.49",
   "publishedAt": "2026-07-27T00:00:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.48-Image-Intelligence.sh",
-  "sha256": "cd94d7d6a1f7e65baf42df554b539816556460204f7b3ce780ed815d4d6dc56c",
-  "title": "VeloraOS 1.10.48 - Image Intelligence",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.49-License-Soft-Lock.sh",
+  "sha256": "0ce69b5db928d7ddecdda1e70c002688e7b3872ea92dca87ab740fd46f5067fc",
+  "title": "VeloraOS 1.10.49 - Licence Soft Lock",
   "releaseNotes": [
-    "Adds automatic Image Intelligence intent detection for error screenshots, text, charts, diagrams, UI screenshots, comparisons and general images.",
-    "Uses task-specific local vision instructions so each image type is analysed appropriately.",
-    "Improves screenshot troubleshooting by separating visible evidence from likely diagnosis and fixes.",
-    "Adds faithful visible-text extraction without guessing unreadable words.",
-    "Adds chart, diagram and UI analysis plus structured multi-image comparison.",
-    "Keeps all Image Intelligence local with automatic vision-model selection and GPU-first inference."
+    "Soft-locks licensed features when a licence is confirmed revoked, expired, inactive or otherwise no longer entitled.",
+    "Keeps sign-in, licence activation/recheck, profile/account recovery, settings, health and read-only chat retrieval available.",
+    "Blocks AI generation, Coding, Image Intelligence, Web Intelligence and model-management actions while locked.",
+    "Preserves the existing 72-hour offline grace behaviour for temporary licensing-service outages.",
+    "Preserves all local user data, installed Ollama models, device identity and TLS/CA material.",
+    "Restores full access immediately after a valid licence is activated."
   ],
   "rebootRequired": false
 }
