@@ -1,15 +1,16 @@
 {
-  "version": "1.10.47",
+  "version": "1.10.48",
   "publishedAt": "2026-07-27T00:00:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.47-GPU-Acceleration-Enforcement.sh",
-  "sha256": "946e65d1fb2aaa92b549297b4ef1da83dd4c890d170e164a8bb060a55f98d0b4",
-  "title": "VeloraOS 1.10.47 - GPU Acceleration Enforcement",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.48-Image-Intelligence.sh",
+  "sha256": "cd94d7d6a1f7e65baf42df554b539816556460204f7b3ce780ed815d4d6dc56c",
+  "title": "VeloraOS 1.10.48 - Image Intelligence",
   "releaseNotes": [
-    "Restores GPU-first inference for every Ollama-backed Chat, Coding and image/vision request when a compatible GPU is available.",
-    "Explicitly requests maximum compatible GPU layer offload for normal generation, continuations, retries and diagnostics.",
-    "Adds an Ollama GPU configuration self-heal during install/update, including render/video permissions.",
-    "Restores Vulkan acceleration configuration for AMD and Intel GPUs while keeping NVIDIA on Ollama's CUDA backend.",
-    "CPU remains a safe fallback only when GPU acceleration is unavailable or the model cannot fully fit in VRAM."
+    "Adds automatic Image Intelligence intent detection for error screenshots, text, charts, diagrams, UI screenshots, comparisons and general images.",
+    "Uses task-specific local vision instructions so each image type is analysed appropriately.",
+    "Improves screenshot troubleshooting by separating visible evidence from likely diagnosis and fixes.",
+    "Adds faithful visible-text extraction without guessing unreadable words.",
+    "Adds chart, diagram and UI analysis plus structured multi-image comparison.",
+    "Keeps all Image Intelligence local with automatic vision-model selection and GPU-first inference."
   ],
   "rebootRequired": false
 }
