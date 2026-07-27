@@ -1,15 +1,14 @@
 {
-  "version": "1.10.42",
+  "version": "1.10.43",
   "publishedAt": "2026-07-27T00:00:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.42-Runtime-Context-Global-Memory.sh",
-  "sha256": "c04c4d25d6b2e18d77735f592cddcf8aaa9491f0f8b01fce1a12c187e5d9da44",
-  "title": "VeloraOS 1.10.42 - Runtime Context & Global Memory",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.43-Memory-UI-Chat-Draft-Hotfix.sh",
+  "sha256": "816612d7a7e68dbfa99d933b89f7241e34bbd9bf11ec6254bc40b1c61deb3f45",
+  "title": "VeloraOS 1.10.43 - Memory UI & Chat Draft Hotfix",
   "releaseNotes": [
-    "Disables all Chat completion and failure notifications; Chat errors remain visible inline.",
-    "Adds trusted current date, weekday, local time, browser timezone and locale to every real model turn.",
-    "Adds optional per-user Global Memory stored locally on the VeloraOS appliance across all chats.",
-    "Replaces the broken multipart repair with a deterministic gzip payload whose individual parts and decoded archive are all checksum verified.",
-    "The updater now prints service status and recent VeloraOS logs automatically if the post-update health check fails."
+    "Fixes Global Memory controls failing with Velora.addMemory is not a function.",
+    "Exports all Global Memory actions to the VeloraOS UI event layer.",
+    "Preserves unsent chat drafts per conversation across UI re-renders.",
+    "Preserves composer focus and cursor position across necessary Chat refreshes."
   ],
   "rebootRequired": false
 }

@@ -1,0 +1,2 @@
+816612d7a7e68dbfa99d933b89f7241e34bbd9bf11ec6254bc40b1c61deb3f45  installer/update/VeloraOS-Update-1.10.43-Memory-UI-Chat-Draft-Hotfix.sh
+90be55ba853992fcde659d8f9f5846aac693c11f405ab50cccef95cb22cc1fd0  installer/update/latest.json
