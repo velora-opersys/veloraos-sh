@@ -1,16 +1,15 @@
 {
-  "version": "1.10.38",
-  "publishedAt": "2026-07-26T00:00:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.38-Chat-Delivery-Reliability-Hotfix.sh",
-  "sha256": "94012ef695fb7261eb5263eca1bd776fcdd4c90000593afbe2e3d4670960ba29",
-  "title": "VeloraOS 1.10.38 - Chat Delivery Reliability Hotfix",
+  "version": "1.10.42",
+  "publishedAt": "2026-07-27T00:00:00Z",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.42-Runtime-Context-Global-Memory.sh",
+  "sha256": "c04c4d25d6b2e18d77735f592cddcf8aaa9491f0f8b01fce1a12c187e5d9da44",
+  "title": "VeloraOS 1.10.42 - Runtime Context & Global Memory",
   "releaseNotes": [
-    "Fixes completed model responses occasionally disappearing instead of being appended to Chat.",
-    "Uses stable per-user-turn IDs and per-background-task assistant IDs instead of fragile whole-conversation equality checks.",
-    "Retains edit/resend safety by rejecting late responses after a newer user turn or an existing assistant answer.",
-    "Adds browser-side recovery from the completed background task payload if a harmless persistence race occurs.",
-    "Clears stale working banners when generation completes and prevents duplicate recovered replies.",
-    "Preserves Qwen2.5 3B, Coding mode, adaptive budgets, Ollama watchdogs, automatic continuation and hidden-reasoning protection."
+    "Disables all Chat completion and failure notifications; Chat errors remain visible inline.",
+    "Adds trusted current date, weekday, local time, browser timezone and locale to every real model turn.",
+    "Adds optional per-user Global Memory stored locally on the VeloraOS appliance across all chats.",
+    "Replaces the broken multipart repair with a deterministic gzip payload whose individual parts and decoded archive are all checksum verified.",
+    "The updater now prints service status and recent VeloraOS logs automatically if the post-update health check fails."
   ],
   "rebootRequired": false
 }
