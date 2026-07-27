@@ -1,0 +1,3 @@
+3e8c02d7d0cc99668fbb863e3f0620edd81bf68395d1dabe3c15c33d7b6d95f2  installer/current/VeloraOS-Install-1.10.47-GPU-Acceleration-Enforcement.sh
+946e65d1fb2aaa92b549297b4ef1da83dd4c890d170e164a8bb060a55f98d0b4  installer/update/VeloraOS-Update-1.10.47-GPU-Acceleration-Enforcement.sh
+bfda6437aeb6b690e78c11bea26ab37c5546390a3db508a1d7a91bc93cb7e3e1  installer/update/latest.json

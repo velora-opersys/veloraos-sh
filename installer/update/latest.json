@@ -1,16 +1,15 @@
 {
-  "version": "1.10.46",
+  "version": "1.10.47",
   "publishedAt": "2026-07-27T00:00:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.46-Automatic-Image-Vision-Routing.sh",
-  "sha256": "4c9ac2096f73c62409cde0bd6cdaa9b7a75cea81db9a9bf516c848cb78df3170",
-  "title": "VeloraOS 1.10.46 - Automatic Image & Vision Routing",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.47-GPU-Acceleration-Enforcement.sh",
+  "sha256": "946e65d1fb2aaa92b549297b4ef1da83dd4c890d170e164a8bb060a55f98d0b4",
+  "title": "VeloraOS 1.10.47 - GPU Acceleration Enforcement",
   "releaseNotes": [
-    "Detects images on the current user turn before Chat model routing.",
-    "Automatically routes image messages to an installed local vision model instead of Qwen2.5.",
-    "Prefers LLaVA 7B, falls back to Moondream, and supports other Ollama models that declare vision capability.",
-    "Vision routing is per-message, so later text-only turns return to the normal VeloraOS Main model.",
-    "Provides a clear install-vision-model message when no vision-capable local model is available.",
-    "Improves screenshot error analysis with dedicated instructions to read visible error text and avoid inventing unreadable details."
+    "Restores GPU-first inference for every Ollama-backed Chat, Coding and image/vision request when a compatible GPU is available.",
+    "Explicitly requests maximum compatible GPU layer offload for normal generation, continuations, retries and diagnostics.",
+    "Adds an Ollama GPU configuration self-heal during install/update, including render/video permissions.",
+    "Restores Vulkan acceleration configuration for AMD and Intel GPUs while keeping NVIDIA on Ollama's CUDA backend.",
+    "CPU remains a safe fallback only when GPU acceleration is unavailable or the model cannot fully fit in VRAM."
   ],
   "rebootRequired": false
 }
