@@ -1,0 +1,3 @@
+200c21b7001b35dbdc2044da59ef0f0dc873b7c5c2c68233505a80cfdc07eb9d  installer/current/VeloraOS-Install-1.10.51-Chat-Task-Image-Routing-Hotfix.sh
+33a65cfaf70dad91c8a7ba0eba3e7a35b5867336925f72b18d1347cfccb55920  installer/update/VeloraOS-Update-1.10.51-Chat-Task-Image-Routing-Hotfix.sh
+9e472efe1c85371bf096bbd45019befa40b294a344f2ad20e838f7733d5787e0  installer/update/latest.json

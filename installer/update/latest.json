@@ -1,16 +1,15 @@
 {
-  "version": "1.10.50",
+  "version": "1.10.51",
   "publishedAt": "2026-07-27T00:00:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.50-Image-Payload-Hardening.sh",
-  "sha256": "0c114f8e50c50940c971d29ee98298cb9aed8e772a6785279d850132341ae470",
-  "title": "VeloraOS 1.10.50 - Image Payload Hardening",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.51-Chat-Task-Image-Routing-Hotfix.sh",
+  "sha256": "33a65cfaf70dad91c8a7ba0eba3e7a35b5867336925f72b18d1347cfccb55920",
+  "title": "VeloraOS 1.10.51 - Chat Task Image Routing Hotfix",
   "releaseNotes": [
-    "Fixes vision requests failing with Failed to load image or audio file.",
-    "Normalises browser image uploads to known-good PNG/JPEG before they enter Chat.",
-    "Validates Base64, image size and decoded PNG/JPEG signatures before sending images to Ollama.",
-    "Sends only the newest user turn's images to the vision model so stale attachments cannot break later requests.",
-    "Resizes images to a maximum 2048-pixel side to reduce VRAM pressure while retaining useful detail.",
-    "Keeps Image Intelligence, automatic local vision routing and GPU-first inference."
+    "Fixes the 500 Internal Server Error in Chat task creation introduced by 1.10.50 image payload hardening.",
+    "Creates and validates clean chat messages before model and Image Intelligence routing.",
+    "Returns a clear invalid-image message instead of a backend crash when an uploaded image cannot be decoded.",
+    "Uses validated image state for vision routing, task metadata and web-search decisions.",
+    "Keeps PNG/JPEG payload hardening, Image Intelligence, GPU-first inference and licence soft-lock."
   ],
   "rebootRequired": false
 }
