@@ -1,0 +1,3 @@
+be456053b08ded188ed85f62717bac84cef2cff6022429679c67425135b549e2  installer/current/VeloraOS-Install-1.10.44-Composer-Clear-Hotfix.sh
+b47402df748d5b6ea85f357b15819e90bf1da457f6cffa8f546c9161d1f7b951  installer/update/VeloraOS-Update-1.10.44-Composer-Clear-Hotfix.sh
+4c75c9b788a01b6a4abd5a97411ad6daf2e595b6d1f7eeb0e913b65b43eeac1f  installer/update/latest.json

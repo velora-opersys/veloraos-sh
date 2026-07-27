@@ -1,16 +1,13 @@
 {
-  "version": "1.10.43",
+  "version": "1.10.44",
   "publishedAt": "2026-07-27T00:00:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.43-Memory-UI-Chat-Draft-Hotfix.sh",
-  "sha256": "76efb509204dbcc75a0fc134c1a25fd8c567fa738f82fabc23911bad57ce5547",
-  "title": "VeloraOS 1.10.43 - Memory UI & Chat Draft Hotfix",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.44-Composer-Clear-Hotfix.sh",
+  "sha256": "b47402df748d5b6ea85f357b15819e90bf1da457f6cffa8f546c9161d1f7b951",
+  "title": "VeloraOS 1.10.44 - Composer Clear Hotfix",
   "releaseNotes": [
-    "Fixes Global Memory controls failing with Velora.addMemory is not a function.",
-    "Exports all Global Memory actions to the VeloraOS UI event layer.",
-    "Preserves unsent chat drafts per conversation across UI re-renders.",
-    "Preserves composer focus and cursor position across necessary Chat refreshes.",
-    "Includes the complete 1.10.43 installer and updater payload rather than a compact frontend-only patch.",
-    "Preserves Runtime Context, Global Memory, Web Intelligence, licensing, TLS identity, installed Ollama models and existing user data."
+    "Fixes the just-sent user message remaining in the Chat composer after Send.",
+    "Clears both the saved per-chat draft and live textarea before generation begins.",
+    "Keeps unsent draft preservation, focus restoration, Global Memory and Runtime Context intact."
   ],
   "rebootRequired": false
 }
