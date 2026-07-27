@@ -1,0 +1,3 @@
+0e9ff524064f9539b5bd9eb78c58309a0cdd5cbf17f9a7d7a190e0022ca498a4  installer/current/VeloraOS-Install-1.10.45-Memory-Opt-In-Hotfix.sh
+e2a96c2cbcfc432299f8b5fcb9c022aa197f36f3bed67cb0006b7adc0d7cfee3  installer/update/VeloraOS-Update-1.10.45-Memory-Opt-In-Hotfix.sh
+d22570cdd5c7a59d79cd41a6d6db75543b3f7594afb5c115362a003cfbe72706  installer/update/latest.json

@@ -1,13 +1,14 @@
 {
-  "version": "1.10.44",
+  "version": "1.10.45",
   "publishedAt": "2026-07-27T00:00:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.44-Composer-Clear-Hotfix.sh",
-  "sha256": "b47402df748d5b6ea85f357b15819e90bf1da457f6cffa8f546c9161d1f7b951",
-  "title": "VeloraOS 1.10.44 - Composer Clear Hotfix",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.45-Memory-Opt-In-Hotfix.sh",
+  "sha256": "e2a96c2cbcfc432299f8b5fcb9c022aa197f36f3bed67cb0006b7adc0d7cfee3",
+  "title": "VeloraOS 1.10.45 - Secondary User Memory Opt-In Hotfix",
   "releaseNotes": [
-    "Fixes the just-sent user message remaining in the Chat composer after Send.",
-    "Clears both the saved per-chat draft and live textarea before generation begins.",
-    "Keeps unsent draft preservation, focus restoration, Global Memory and Runtime Context intact."
+    "Fixes explicit remember requests not saving for secondary users whose Global Memory had not yet been enabled.",
+    "An explicit remember request now opts that account into Global Memory and saves the requested information immediately.",
+    "Passive automatic memory learning remains disabled until the user has explicitly opted in.",
+    "Memory remains strictly per-user and existing account settings are preserved."
   ],
   "rebootRequired": false
 }
