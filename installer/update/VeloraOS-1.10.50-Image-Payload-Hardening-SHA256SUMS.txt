@@ -1,0 +1,3 @@
+cd030c04017643628240a38f23eeac184cb86ddd961dd9cf44858d4851e88f90  installer/current/VeloraOS-Install-1.10.50-Image-Payload-Hardening.sh
+0c114f8e50c50940c971d29ee98298cb9aed8e772a6785279d850132341ae470  installer/update/VeloraOS-Update-1.10.50-Image-Payload-Hardening.sh
+cbe0f77fe88ae56512b742a56da327cba75f46d6f0cd1f6a2bf8f5cacf35eb71  installer/update/latest.json

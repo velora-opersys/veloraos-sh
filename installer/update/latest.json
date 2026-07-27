@@ -1,16 +1,16 @@
 {
-  "version": "1.10.49",
+  "version": "1.10.50",
   "publishedAt": "2026-07-27T00:00:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.49-License-Soft-Lock.sh",
-  "sha256": "0ce69b5db928d7ddecdda1e70c002688e7b3872ea92dca87ab740fd46f5067fc",
-  "title": "VeloraOS 1.10.49 - Licence Soft Lock",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.50-Image-Payload-Hardening.sh",
+  "sha256": "0c114f8e50c50940c971d29ee98298cb9aed8e772a6785279d850132341ae470",
+  "title": "VeloraOS 1.10.50 - Image Payload Hardening",
   "releaseNotes": [
-    "Soft-locks licensed features when a licence is confirmed revoked, expired, inactive or otherwise no longer entitled.",
-    "Keeps sign-in, licence activation/recheck, profile/account recovery, settings, health and read-only chat retrieval available.",
-    "Blocks AI generation, Coding, Image Intelligence, Web Intelligence and model-management actions while locked.",
-    "Preserves the existing 72-hour offline grace behaviour for temporary licensing-service outages.",
-    "Preserves all local user data, installed Ollama models, device identity and TLS/CA material.",
-    "Restores full access immediately after a valid licence is activated."
+    "Fixes vision requests failing with Failed to load image or audio file.",
+    "Normalises browser image uploads to known-good PNG/JPEG before they enter Chat.",
+    "Validates Base64, image size and decoded PNG/JPEG signatures before sending images to Ollama.",
+    "Sends only the newest user turn's images to the vision model so stale attachments cannot break later requests.",
+    "Resizes images to a maximum 2048-pixel side to reduce VRAM pressure while retaining useful detail.",
+    "Keeps Image Intelligence, automatic local vision routing and GPU-first inference."
   ],
   "rebootRequired": false
 }
