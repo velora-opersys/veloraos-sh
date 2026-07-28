@@ -1,3 +1,3 @@
 b48b027a5df04bbb2a5431f1b4f47c96352cc521652e1d52832d46fccd5e0390  installer/current/VeloraOS-Install-1.10.55-iOS-Layout-Keyboard-Polish.sh
-739100881bbabf01756fd52f83883e065360acf9751c7b43a96d82e74419e10d  installer/update/VeloraOS-Update-1.10.55-iOS-Layout-Keyboard-Polish.sh
-2a0baaebbf3b4776793b192e64ea5c907fefd290d6cbfd70d81c2731929b9283  installer/update/latest.json
+c90e313734f8a296bb28b7572c6cdc56b060d73969a956d1deccb9d8621d33c4  installer/update/VeloraOS-Update-1.10.55-iOS-Layout-Keyboard-Polish.sh
+c0a6951bf09dda65a3cbfa5d471511d58111a1de8a509be77dc41c8da6d0583e  installer/update/latest.json

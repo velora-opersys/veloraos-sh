@@ -2,7 +2,7 @@
   "version": "1.10.55",
   "publishedAt": "2026-07-28T16:12:00Z",
   "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.55-iOS-Layout-Keyboard-Polish.sh",
-  "sha256": "739100881bbabf01756fd52f83883e065360acf9751c7b43a96d82e74419e10d",
+  "sha256": "c90e313734f8a296bb28b7572c6cdc56b060d73969a956d1deccb9d8621d33c4",
   "title": "VeloraOS 1.10.55 - iOS Layout & Keyboard Polish",
   "releaseNotes": [
     "Fixes the standalone iPhone/iPad Chat composer being covered by the bottom tab bar.",
