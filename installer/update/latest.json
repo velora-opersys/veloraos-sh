@@ -1,15 +1,15 @@
 {
-  "version": "1.10.51",
-  "publishedAt": "2026-07-27T00:00:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.51-Chat-Task-Image-Routing-Hotfix.sh",
-  "sha256": "33a65cfaf70dad91c8a7ba0eba3e7a35b5867336925f72b18d1347cfccb55920",
-  "title": "VeloraOS 1.10.51 - Chat Task Image Routing Hotfix",
+  "version": "1.10.52",
+  "publishedAt": "2026-07-28T00:00:00Z",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.52-System-Safety-Control.sh",
+  "sha256": "747436ddd13f24a00322c99385287debd2fa9b1b6fd945c29956f1ba946ee725",
+  "title": "VeloraOS 1.10.52 - System & Safety Control",
   "releaseNotes": [
-    "Fixes the 500 Internal Server Error in Chat task creation introduced by 1.10.50 image payload hardening.",
-    "Creates and validates clean chat messages before model and Image Intelligence routing.",
-    "Returns a clear invalid-image message instead of a backend crash when an uploaded image cannot be decoded.",
-    "Uses validated image state for vision routing, task metadata and web-search decisions.",
-    "Keeps PNG/JPEG payload hardening, Image Intelligence, GPU-first inference and licence soft-lock."
+    "Adds stronger dangerous-URL validation for Web Intelligence, including public-address enforcement and redirect safety.",
+    "Adds image privacy protection that avoids unsupported identification and sensitive-trait inference from images.",
+    "Adds an administrator System page with health, uptime, IP address, CPU, RAM, GPU, Ollama and AI acceleration status.",
+    "Adds protected Restart VeloraOS, Restart AI, Reboot System and Shut Down controls for VeloraOS OS appliances.",
+    "Installs a tightly allow-listed privileged system-control helper without exposing arbitrary shell execution."
   ],
   "rebootRequired": false
 }
