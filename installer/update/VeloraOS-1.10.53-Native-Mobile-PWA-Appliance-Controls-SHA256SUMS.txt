@@ -1,0 +1,3 @@
+1fba8f1f72956b25b1d94e7ead71a90abe736cc6cc20cd8514fc6a051384842a  installer/current/VeloraOS-Install-1.10.53-Native-Mobile-PWA-Appliance-Controls.sh
+8fc391ac9406274239d6c779318e72d66cea1fada2560d8fad295cfe21cb92ba  installer/update/VeloraOS-Update-1.10.53-Native-Mobile-PWA-Appliance-Controls.sh
+1f0754d0d8ae7bd02d11b061501ee966443c59b126520536db5686361c827136  installer/update/latest.json

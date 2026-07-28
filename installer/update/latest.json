@@ -1,15 +1,16 @@
 {
-  "version": "1.10.52",
-  "publishedAt": "2026-07-28T14:20:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.52-System-Safety-Control.sh",
-  "sha256": "1426cfcc0df75c20322261e96077f2bda12ece7c162942cb8564daa656afaffa",
-  "title": "VeloraOS 1.10.52 - System & Safety Control",
+  "version": "1.10.53",
+  "publishedAt": "2026-07-28T15:00:00Z",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.53-Native-Mobile-PWA-Appliance-Controls.sh",
+  "sha256": "8fc391ac9406274239d6c779318e72d66cea1fada2560d8fad295cfe21cb92ba",
+  "title": "VeloraOS 1.10.53 - Native Mobile PWA & Appliance Controls",
   "releaseNotes": [
-    "Adds stronger dangerous-URL validation for Web Intelligence, including public-address enforcement and redirect safety.",
-    "Adds image privacy protection that avoids unsupported identification and sensitive-trait inference from images.",
-    "Adds an administrator System page with health, uptime, IP address, CPU, RAM, GPU, Ollama and AI acceleration status.",
-    "Adds protected Restart VeloraOS, Restart AI, Reboot System and Shut Down controls for VeloraOS OS appliances.",
-    "Installs a tightly allow-listed privileged system-control helper without exposing arbitrary shell execution."
+    "Fixes greyed-out VeloraOS OS power/service controls by recognising provisioned VeloraOS appliance markers and reporting the exact availability reason.",
+    "Adds a native-style standalone mobile shell with an iOS-like navigation bar, refined bottom tabs, touch feedback and safe-area layout.",
+    "Adds keyboard-aware visual viewport handling so Chat and the composer stay correctly sized when the iPhone/iPad keyboard opens.",
+    "Adds in-app bottom-sheet confirmations and toast feedback instead of browser-looking prompts for appliance actions.",
+    "Adds iOS Home Screen launch artwork, PWA shortcuts, deep-link restoration and supported app-badge integration.",
+    "Upgrades the service-worker app shell while continuing to exclude API, backup and recovery data from offline caching."
   ],
   "rebootRequired": false
 }
