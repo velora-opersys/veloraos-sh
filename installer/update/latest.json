@@ -1,8 +1,8 @@
 {
   "version": "1.10.52",
-  "publishedAt": "2026-07-28T00:00:00Z",
+  "publishedAt": "2026-07-28T14:20:00Z",
   "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.52-System-Safety-Control.sh",
-  "sha256": "747436ddd13f24a00322c99385287debd2fa9b1b6fd945c29956f1ba946ee725",
+  "sha256": "1426cfcc0df75c20322261e96077f2bda12ece7c162942cb8564daa656afaffa",
   "title": "VeloraOS 1.10.52 - System & Safety Control",
   "releaseNotes": [
     "Adds stronger dangerous-URL validation for Web Intelligence, including public-address enforcement and redirect safety.",

@@ -153,7 +153,7 @@ grep -Fq 'VERSION = "1.10.52"' "$STAGE/app/main.py" || die 'The update version m
 test -f "$STAGE/app/os_control.py" || die 'The VeloraOS OS control backend is missing.'
 grep -Fq '/api/admin/system' "$STAGE/app/main.py" || die 'The System status API is missing.'
 grep -Fq '/api/admin/system/reboot' "$STAGE/app/main.py" || die 'The protected system reboot API is missing.'
-grep -Fq 'function systemPage()' "$STAGE/app/static/app-110520.js" || die 'The System control page is missing.'
+grep -Fq 'function systemHealthOverview()' "$STAGE/app/static/app-110520.js" || die 'The System control page is missing.'
 grep -Fq 'validate_public_url' "$STAGE/app/web_intelligence.py" || die 'Dangerous URL protection is missing.'
 grep -Fq 'IMAGE_PRIVACY' "$STAGE/app/main.py" || true
 grep -Fq '/api/update/status' "$STAGE/app/main.py" || die 'The update API is missing.'
