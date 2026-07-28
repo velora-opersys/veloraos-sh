@@ -1,16 +1,16 @@
 {
-  "version": "1.10.54",
-  "publishedAt": "2026-07-28T16:45:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.54-iOS-UX-Polish.sh",
-  "sha256": "1545862bc4564bc40763e0e63e32ba9470159017895bb7aae0a9c04c34595074",
-  "title": "VeloraOS 1.10.54 - iOS UX Polish",
+  "version": "1.10.55",
+  "publishedAt": "2026-07-28T16:12:00Z",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.55-iOS-Layout-Keyboard-Polish.sh",
+  "sha256": "739100881bbabf01756fd52f83883e065360acf9751c7b43a96d82e74419e10d",
+  "title": "VeloraOS 1.10.55 - iOS Layout & Keyboard Polish",
   "releaseNotes": [
-    "Rebuilds standalone mobile Chat around a compact native-style conversation header with no wasted top space.",
-    "Moves image and camera attachments into the message composer and adds native-style attachment actions.",
-    "Adds native conversation actions for new chat, rename, Chat controls, notifications and delete.",
-    "Adds in-app rename and destructive confirmation sheets instead of browser prompts in the installed PWA.",
-    "Groups conversation history into Today, Yesterday and Previous and adds an edge-swipe drawer gesture.",
-    "Refines keyboard, safe-area, composer and bottom-tab sizing and adds an iPad standalone layout."
+    "Fixes the standalone iPhone/iPad Chat composer being covered by the bottom tab bar.",
+    "Uses deterministic native header and tab-bar geometry so the message timeline, composer and navigation never overlap.",
+    "Hides the tab bar while the iOS keyboard is open and anchors the composer directly above the keyboard using the Visual Viewport.",
+    "Improves keyboard focus, blur and orientation handling and keeps the latest conversation content visible during keyboard transitions.",
+    "Refines the mobile header and tab bar sizing and adds a native send-button ready state when text or an image is queued.",
+    "Keeps only the message timeline scrollable while the app header, composer and native navigation remain anchored."
   ],
   "rebootRequired": false
 }
