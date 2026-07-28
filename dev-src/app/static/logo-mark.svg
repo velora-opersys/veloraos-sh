@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 216 64" role="img" aria-labelledby="title desc">
+  <title id="title">VLOS</title>
+  <desc id="desc">Angular VLOS wordmark for VeloraOS.</desc>
+  <g fill="none" stroke-linejoin="miter" stroke-linecap="square">
+    <path d="M6 10h13l17 36 17-36h13L42 56H30L6 10Z" fill="#7ee3a0" stroke="#7ee3a0" stroke-width="2"/>
+    <path d="M30 10h10l-7 16-5-11 2-5Z" fill="#dfffea"/>
+    <path d="M76 10v36h34v10H64V10h12Z" fill="#eef7f1"/>
+    <path d="M126 10h29l11 11v24l-11 11h-29l-11-11V21l11-11Zm4 10-5 5v16l5 5h21l5-5V25l-5-5h-21Z" fill="#eef7f1"/>
+    <path d="M178 10h34v10h-30l-4 4v3l4 3h23l11 10v6l-10 10h-38V46h34l4-4v-2l-4-3h-24l-10-9v-8l10-10Z" fill="#eef7f1"/>
+    <path d="M82 46h19" stroke="#7ee3a0" stroke-width="3"/>
+    <path d="M140 10v10M140 46v10" stroke="#7ee3a0" stroke-width="3"/>
+    <path d="M188 30h17" stroke="#7ee3a0" stroke-width="3"/>
+  </g>
+</svg>

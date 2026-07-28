@@ -1,0 +1,90 @@
+{
+  "id": "/app",
+  "name": "VeloraOS",
+  "short_name": "VeloraOS",
+  "description": "Private local AI appliance with a native-style mobile Chat experience, Models, Knowledge and system management.",
+  "lang": "en-GB",
+  "dir": "ltr",
+  "start_url": "/app?source=pwa&page=home",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ],
+  "background_color": "#080b14",
+  "theme_color": "#080b14",
+  "orientation": "any",
+  "categories": [
+    "productivity",
+    "utilities"
+  ],
+  "prefer_related_applications": false,
+  "launch_handler": {
+    "client_mode": [
+      "navigate-existing",
+      "auto"
+    ]
+  },
+  "icons": [
+    {
+      "src": "/static/pwa-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/static/pwa-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/static/pwa-icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Chat",
+      "short_name": "Chat",
+      "description": "Open VeloraOS Chat",
+      "url": "/app?page=chat&source=shortcut",
+      "icons": [
+        {
+          "src": "/static/pwa-icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Models",
+      "short_name": "Models",
+      "description": "Manage local AI models",
+      "url": "/app?page=models&source=shortcut",
+      "icons": [
+        {
+          "src": "/static/pwa-icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "System",
+      "short_name": "System",
+      "description": "Open VeloraOS system controls",
+      "url": "/app?page=system-info&source=shortcut",
+      "icons": [
+        {
+          "src": "/static/pwa-icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ]
+}

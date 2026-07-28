@@ -1,0 +1,26 @@
+#!/bin/bash
+set -Eeuo pipefail
+
+ACTION="${1:-}"
+SYSTEMCTL="/usr/bin/systemctl"
+
+[[ -x "$SYSTEMCTL" ]] || { echo "systemctl is unavailable." >&2; exit 69; }
+
+case "$ACTION" in
+  restart-veloraos)
+    nohup /bin/sh -c 'sleep 2; exec /usr/bin/systemctl restart veloraos.service' >/dev/null 2>&1 &
+    ;;
+  restart-ai)
+    nohup /bin/sh -c 'sleep 1; exec /usr/bin/systemctl restart ollama.service' >/dev/null 2>&1 &
+    ;;
+  reboot)
+    nohup /bin/sh -c 'sleep 2; exec /usr/bin/systemctl reboot' >/dev/null 2>&1 &
+    ;;
+  shutdown)
+    nohup /bin/sh -c 'sleep 2; exec /usr/bin/systemctl poweroff' >/dev/null 2>&1 &
+    ;;
+  *)
+    echo "Unsupported VeloraOS system action." >&2
+    exit 64
+    ;;
+esac
