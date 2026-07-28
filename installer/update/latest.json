@@ -1,16 +1,16 @@
 {
-  "version": "1.10.53",
-  "publishedAt": "2026-07-28T15:00:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.53-Native-Mobile-PWA-Appliance-Controls.sh",
-  "sha256": "8fc391ac9406274239d6c779318e72d66cea1fada2560d8fad295cfe21cb92ba",
-  "title": "VeloraOS 1.10.53 - Native Mobile PWA & Appliance Controls",
+  "version": "1.10.54",
+  "publishedAt": "2026-07-28T16:45:00Z",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.54-iOS-UX-Polish.sh",
+  "sha256": "1545862bc4564bc40763e0e63e32ba9470159017895bb7aae0a9c04c34595074",
+  "title": "VeloraOS 1.10.54 - iOS UX Polish",
   "releaseNotes": [
-    "Fixes greyed-out VeloraOS OS power/service controls by recognising provisioned VeloraOS appliance markers and reporting the exact availability reason.",
-    "Adds a native-style standalone mobile shell with an iOS-like navigation bar, refined bottom tabs, touch feedback and safe-area layout.",
-    "Adds keyboard-aware visual viewport handling so Chat and the composer stay correctly sized when the iPhone/iPad keyboard opens.",
-    "Adds in-app bottom-sheet confirmations and toast feedback instead of browser-looking prompts for appliance actions.",
-    "Adds iOS Home Screen launch artwork, PWA shortcuts, deep-link restoration and supported app-badge integration.",
-    "Upgrades the service-worker app shell while continuing to exclude API, backup and recovery data from offline caching."
+    "Rebuilds standalone mobile Chat around a compact native-style conversation header with no wasted top space.",
+    "Moves image and camera attachments into the message composer and adds native-style attachment actions.",
+    "Adds native conversation actions for new chat, rename, Chat controls, notifications and delete.",
+    "Adds in-app rename and destructive confirmation sheets instead of browser prompts in the installed PWA.",
+    "Groups conversation history into Today, Yesterday and Previous and adds an edge-swipe drawer gesture.",
+    "Refines keyboard, safe-area, composer and bottom-tab sizing and adds an iPad standalone layout."
   ],
   "rebootRequired": false
 }
