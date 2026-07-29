@@ -1,16 +1,16 @@
 {
-  "version": "1.10.55",
-  "publishedAt": "2026-07-28T16:12:00Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.55-iOS-Layout-Keyboard-Polish.sh",
-  "sha256": "c90e313734f8a296bb28b7572c6cdc56b060d73969a956d1deccb9d8621d33c4",
-  "title": "VeloraOS 1.10.55 - iOS Layout & Keyboard Polish",
+  "version": "1.10.56",
+  "publishedAt": "2026-07-28T20:53:39Z",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.56-Core-Models-Mobile-Response-Polish.sh",
+  "sha256": "1b21138d449facf360c026b17a00addb9ed29066ba36826a3bf77e8886d569c8",
+  "title": "VeloraOS 1.10.56 - Core Models & Mobile Response Polish",
   "releaseNotes": [
-    "Fixes the standalone iPhone/iPad Chat composer being covered by the bottom tab bar.",
-    "Uses deterministic native header and tab-bar geometry so the message timeline, composer and navigation never overlap.",
-    "Hides the tab bar while the iOS keyboard is open and anchors the composer directly above the keyboard using the Visual Viewport.",
-    "Improves keyboard focus, blur and orientation handling and keeps the latest conversation content visible during keyboard transitions.",
-    "Refines the mobile header and tab bar sizing and adds a native send-button ready state when text or an image is queued.",
-    "Keeps only the message timeline scrollable while the app header, composer and native navigation remain anchored."
+    "Restores the animated three-dot activity indicator in standalone mobile Chat while VeloraOS is thinking and responding.",
+    "Makes VeloraOS Main (Qwen2.5 3B), VeloraOS Vision (LLaVA 7B) and VeloraOS Coding (Qwen2.5 Coder 7B) the three supported core models.",
+    "Keeps image attachments routed to VeloraOS Vision and Coding mode routed to VeloraOS Coding for a predictable supported experience.",
+    "Moves every other installed Ollama model into a collapsed Advanced Custom Models area instead of mixing it into the normal model catalogue.",
+    "Allows validated Ollama-compatible custom model downloads, deliberate custom Chat selection, administrator deletion and one-tap restoration of VeloraOS Main.",
+    "Keeps custom models out of automatic image and coding routing and bumps the PWA application shell to 1.10.56."
   ],
   "rebootRequired": false
 }
