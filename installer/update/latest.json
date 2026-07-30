@@ -1,14 +1,14 @@
 {
   "version": "1.10.57",
-  "minimumVersion": "1.0.0",
+  "publishedAt": "2026-07-30T11:20:00Z",
   "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.57-Knowledge-Library-PWA-File-Experience.sh",
   "sha256": "70282aee045f5425e1394dc6a92694f7140a0a18e81a33bf1e88f883c823794c",
   "title": "VeloraOS 1.10.57 - Knowledge Library & PWA File Experience",
-  "publishedAt": "2026-07-30T11:20:00Z",
-  "notes": [
+  "releaseNotes": [
     "Rebuilds Knowledge as a private per-user document library with metadata, local extraction, open, rename, re-index, retry and permanent removal controls.",
     "Adds native PWA document, photo and camera imports with previews, progress, cancellation, retry and drag-and-drop support.",
     "Adds secure PWA Share Target and File Handling integration using a private local inbox before authenticated import.",
     "Supports local PDF, DOCX, text, Markdown, CSV, JSON and privacy-conscious image indexing while preserving official VeloraOS model routing."
-  ]
+  ],
+  "rebootRequired": false
 }
