@@ -1,16 +1,14 @@
 {
-  "version": "1.10.56",
-  "publishedAt": "2026-07-28T20:53:39Z",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.56-Core-Models-Mobile-Response-Polish.sh",
-  "sha256": "1b21138d449facf360c026b17a00addb9ed29066ba36826a3bf77e8886d569c8",
-  "title": "VeloraOS 1.10.56 - Core Models & Mobile Response Polish",
-  "releaseNotes": [
-    "Restores the animated three-dot activity indicator in standalone mobile Chat while VeloraOS is thinking and responding.",
-    "Makes VeloraOS Main (Qwen2.5 3B), VeloraOS Vision (LLaVA 7B) and VeloraOS Coding (Qwen2.5 Coder 7B) the three supported core models.",
-    "Keeps image attachments routed to VeloraOS Vision and Coding mode routed to VeloraOS Coding for a predictable supported experience.",
-    "Moves every other installed Ollama model into a collapsed Advanced Custom Models area instead of mixing it into the normal model catalogue.",
-    "Allows validated Ollama-compatible custom model downloads, deliberate custom Chat selection, administrator deletion and one-tap restoration of VeloraOS Main.",
-    "Keeps custom models out of automatic image and coding routing and bumps the PWA application shell to 1.10.56."
-  ],
-  "rebootRequired": false
+  "version": "1.10.57",
+  "minimumVersion": "1.0.0",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.57-Knowledge-Library-PWA-File-Experience.sh",
+  "sha256": "70282aee045f5425e1394dc6a92694f7140a0a18e81a33bf1e88f883c823794c",
+  "title": "VeloraOS 1.10.57 - Knowledge Library & PWA File Experience",
+  "publishedAt": "2026-07-30T11:20:00Z",
+  "notes": [
+    "Rebuilds Knowledge as a private per-user document library with metadata, local extraction, open, rename, re-index, retry and permanent removal controls.",
+    "Adds native PWA document, photo and camera imports with previews, progress, cancellation, retry and drag-and-drop support.",
+    "Adds secure PWA Share Target and File Handling integration using a private local inbox before authenticated import.",
+    "Supports local PDF, DOCX, text, Markdown, CSV, JSON and privacy-conscious image indexing while preserving official VeloraOS model routing."
+  ]
 }
