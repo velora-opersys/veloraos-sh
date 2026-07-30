@@ -1,3 +1,3 @@
 0e1a67bbd73dcd542581d621428ac08c2c358b2a7af4704310c82c5a48d214cd  installer/current/VeloraOS-Install-1.10.58-Universal-Command-Palette.sh
 69b6598b5d86b939b56f2fb54e171f0d4b15aa40bf71a5bfdd6902b1ff02a005  installer/update/VeloraOS-Update-1.10.58-Universal-Command-Palette.sh
-743ad600e2710bd7e1f885292cdf9ce03d4f8d5f4d722863b8784ff03adcf3ad  installer/update/latest.json
+3bc3dc35523bc4456e75289f4dbf282eaf32d79c81a4a63367aab26bf868c2d8  installer/update/latest.json

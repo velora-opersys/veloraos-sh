@@ -5,10 +5,11 @@
   "sha256": "69b6598b5d86b939b56f2fb54e171f0d4b15aa40bf71a5bfdd6902b1ff02a005",
   "title": "VeloraOS 1.10.58 - Universal Command Palette",
   "publishedAt": "2026-07-30T17:13:00Z",
-  "notes": [
+  "releaseNotes": [
     "Adds a global Universal Command Palette available with Ctrl+K, Command+K and dedicated desktop and mobile launch controls.",
     "Searches apps, settings, saved chats, Knowledge files and protected appliance actions with ranked typo-tolerant matching.",
     "Adds the extensible window.VeloraCommands registry so current and future workspaces can register their own actions.",
     "Adds per-account pinned and recent commands, keyboard navigation, safety confirmations and dark, light and system appearance commands."
-  ]
+  ],
+  "rebootRequired": false
 }
