@@ -1,0 +1,3 @@
+6a7e271bb26c0220952bc86a62425a8c610d2c163b9039991a9ce3caff23a12b  installer/current/VeloraOS-Install-1.11.0-Device-Continuity.sh
+8b5ce81022ac805e8e6f0750029efd184e95851144ed19e1c9f4c49ebf3c5aef  installer/update/VeloraOS-Update-1.11.0-Device-Continuity.sh
+16111a8c2a801aa5075ad7783109961bac70421a832a61e92255435add7384e4  installer/update/latest.json

@@ -1,15 +1,16 @@
 {
-  "version": "1.10.58",
+  "version": "1.11.0",
   "minimumVersion": "1.0.0",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.10.58-Universal-Command-Palette.sh",
-  "sha256": "69b6598b5d86b939b56f2fb54e171f0d4b15aa40bf71a5bfdd6902b1ff02a005",
-  "title": "VeloraOS 1.10.58 - Universal Command Palette",
-  "publishedAt": "2026-07-30T17:13:00Z",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.11.0-Device-Continuity.sh",
+  "sha256": "8b5ce81022ac805e8e6f0750029efd184e95851144ed19e1c9f4c49ebf3c5aef",
+  "title": "VeloraOS 1.11.0 - Device Continuity",
+  "publishedAt": "2026-07-31T11:36:55Z",
   "releaseNotes": [
-    "Adds a global Universal Command Palette available with Ctrl+K, Command+K and dedicated desktop and mobile launch controls.",
-    "Searches apps, settings, saved chats, Knowledge files and protected appliance actions with ranked typo-tolerant matching.",
-    "Adds the extensible window.VeloraCommands registry so current and future workspaces can register their own actions.",
-    "Adds per-account pinned and recent commands, keyboard navigation, safety confirmations and dark, light and system appearance commands."
+    "Adds secure Device Continuity pairing with QR codes or one-time codes, mutual approval, trusted-device aliases and immediate revocation.",
+    "Adds end-to-end encrypted direct file transfer with incoming approval, progress, cancellation, retry and SHA-256 verification.",
+    "Adds opt-in shared clipboard and activity handoff for chats, Knowledge items, files and VeloraOS workspaces.",
+    "Adds online presence, incoming transfer and handoff inboxes, audit history and Command Palette device actions.",
+    "Adds responsive desktop and mobile Continuity experiences with private-network HTTPS enforcement and replay-resistant signed requests."
   ],
   "rebootRequired": false
 }
