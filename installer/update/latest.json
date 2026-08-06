@@ -2,7 +2,7 @@
   "version": "1.12.1",
   "minimumVersion": "1.10.58",
   "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.12.1-Time-Machine-Continuity.sh",
-  "sha256": "a1580f1225be41aff8d59a535aeffd645ca39a90bc5e709647f1d12c0b975c61",
+  "sha256": "b69c400ccee909a64005bd074d1b5ec4854fa5f1389400e27158c62b2ae9c490",
   "title": "VeloraOS 1.12.1 - Time Machine Continuity",
   "publishedAt": "2026-08-06T12:43:12Z",
   "releaseNotes": [

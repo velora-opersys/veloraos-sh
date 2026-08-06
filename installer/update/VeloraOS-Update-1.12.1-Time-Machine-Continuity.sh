@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 VERSION="1.12.1"
-EXPECTED_SHA256="40218afa387d1219994c2e2c5b2313fef981b8c4878f16431c0e6839b0ae7db6"
+# SHA-256 of the decoded embedded update payload archive.
+PAYLOAD_SHA256="40218afa387d1219994c2e2c5b2313fef981b8c4878f16431c0e6839b0ae7db6"
 PAYLOAD_BYTES="1685347"
 MARKER="__VELORAOS_1121_UPDATE_PAYLOAD__"
 TMPDIR="$(mktemp -d /tmp/veloraos-1.12.1-update.XXXXXX)"
@@ -15,13 +16,15 @@ for command in awk base64 tr sha256sum stat tar; do command -v "$command" >/dev/
 PAYLOAD_FILE="$TMPDIR/payload.tar.gz"
 awk -v marker="$MARKER" '{line=$0; sub(/\r$/, "", line)} line==marker{found=1;next}found{print}END{if(!found)exit 2}' "$0" | tr -d '[:space:]' | base64 --decode > "$PAYLOAD_FILE" || { echo 'Update payload is missing or invalid.' >&2; exit 1; }
 [[ "$(stat -c '%s' "$PAYLOAD_FILE")" == "$PAYLOAD_BYTES" ]] || { echo 'Update payload size check failed.' >&2; exit 1; }
-[[ "$(sha256sum "$PAYLOAD_FILE" | awk '{print $1}')" == "$EXPECTED_SHA256" ]] || { echo 'Update payload integrity check failed.' >&2; exit 1; }
+ACTUAL_PAYLOAD_SHA256="$(sha256sum "$PAYLOAD_FILE" | awk '{print $1}')"
+[[ "$ACTUAL_PAYLOAD_SHA256" == "$PAYLOAD_SHA256" ]] || { echo 'The embedded update payload checksum does not match; the script is truncated or modified.' >&2; exit 1; }
 tar -tzf "$PAYLOAD_FILE" >/dev/null || { echo 'Update payload archive validation failed.' >&2; exit 1; }
 tar -xzf "$PAYLOAD_FILE" -C "$TMPDIR"
 chmod 0755 "$TMPDIR/veloraos-1.12.1/installer/veloraos-install.sh"
 DEVICE_NAME="$(cat /etc/veloraos/device-name 2>/dev/null || hostname)"
 export VELORAOS_LICENSE_FILE=/etc/veloraos/license
 printf '%s\n' "$DEVICE_NAME" | /bin/bash "$TMPDIR/veloraos-1.12.1/installer/veloraos-install.sh" --replace --skip-ollama
+exit 0
 __VELORAOS_1121_UPDATE_PAYLOAD__
 H4sICGOBdGoA/3BheWxvYWQudGFyAOx96XobR5Jg/9ZTVNeO14ANgIcoWeY0ppemaJtjSdSQlPug
 MPiKQIGsFoDCoACJNI1334wjMyOzsnCQVLd7t+HPIlCVR+QVGXd8TIf5NMmL5k5rZ7e1s5VMJlu/
