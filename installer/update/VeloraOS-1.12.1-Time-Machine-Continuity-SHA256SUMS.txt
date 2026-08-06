@@ -1,3 +1,3 @@
 37fec001432a4da42cd52d442588318423432399f0f405142d0a74e5769f7ae8  installer/current/VeloraOS-Install-1.12.1-Time-Machine-Continuity.sh
-b69c400ccee909a64005bd074d1b5ec4854fa5f1389400e27158c62b2ae9c490  installer/update/VeloraOS-Update-1.12.1-Time-Machine-Continuity.sh
-55e8631e90ede214b98b884c8551864f1d930e1cda20f93c663582a2173aebc2  installer/update/latest.json
+b69c400ccee909a64005bd074d1b5ec4854fa5f1389400e27158c62b2ae9c490  installer/update/VeloraOS-Update-1.12.1-Time-Machine-Continuity-r2.sh
+d88cce290bfee4d3c33172fe1f422c69afb40b8682cd0432de9c0b74699c8594  installer/update/latest.json

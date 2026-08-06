@@ -1,14 +1,14 @@
 {
   "version": "1.12.1",
   "minimumVersion": "1.10.58",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.12.1-Time-Machine-Continuity.sh",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.12.1-Time-Machine-Continuity-r2.sh",
   "sha256": "b69c400ccee909a64005bd074d1b5ec4854fa5f1389400e27158c62b2ae9c490",
   "title": "VeloraOS 1.12.1 - Time Machine Continuity",
-  "publishedAt": "2026-08-06T12:43:12Z",
+  "publishedAt": "2026-08-06T13:46:00Z",
   "releaseNotes": [
     "Adds encrypted checkpoint transfer between paired VeloraOS devices.",
     "Adds one-click import of accepted Device Continuity checkpoint packages.",
-    "Retains the complete Time Machine snapshot, compare, restore, automation and recovery stack."
+    "Reissues the updater at a cache-safe URL with a verified embedded payload checksum."
   ],
   "rebootRequired": false
 }
