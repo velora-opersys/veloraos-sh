@@ -1,16 +1,14 @@
 {
-  "version": "1.11.0",
-  "minimumVersion": "1.0.0",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.11.0-Device-Continuity.sh",
-  "sha256": "8b5ce81022ac805e8e6f0750029efd184e95851144ed19e1c9f4c49ebf3c5aef",
-  "title": "VeloraOS 1.11.0 - Device Continuity",
-  "publishedAt": "2026-07-31T11:36:55Z",
+  "version": "1.12.1",
+  "minimumVersion": "1.10.58",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.12.1-Time-Machine-Continuity.sh",
+  "sha256": "a1580f1225be41aff8d59a535aeffd645ca39a90bc5e709647f1d12c0b975c61",
+  "title": "VeloraOS 1.12.1 - Time Machine Continuity",
+  "publishedAt": "2026-08-06T12:43:12Z",
   "releaseNotes": [
-    "Adds secure Device Continuity pairing with QR codes or one-time codes, mutual approval, trusted-device aliases and immediate revocation.",
-    "Adds end-to-end encrypted direct file transfer with incoming approval, progress, cancellation, retry and SHA-256 verification.",
-    "Adds opt-in shared clipboard and activity handoff for chats, Knowledge items, files and VeloraOS workspaces.",
-    "Adds online presence, incoming transfer and handoff inboxes, audit history and Command Palette device actions.",
-    "Adds responsive desktop and mobile Continuity experiences with private-network HTTPS enforcement and replay-resistant signed requests."
+    "Adds encrypted checkpoint transfer between paired VeloraOS devices.",
+    "Adds one-click import of accepted Device Continuity checkpoint packages.",
+    "Retains the complete Time Machine snapshot, compare, restore, automation and recovery stack."
   ],
   "rebootRequired": false
 }
