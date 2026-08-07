@@ -6,6 +6,11 @@ on:
       - agent/windows-server-support
     paths:
       - '.github/workflows/inspect-platform-payload.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/inspect-platform-payload.yml'
   workflow_dispatch:
 
 permissions:
@@ -20,35 +25,20 @@ jobs:
         shell: python
         run: |
           from pathlib import Path
-          import re
 
           path = Path('installer/update/VeloraOS-Update-1.16.0-Platform-Update.sh')
           text = path.read_text(encoding='utf-8', errors='replace')
           lines = text.splitlines()
           print(f'bytes={len(text.encode("utf-8"))} lines={len(lines)}')
           needles = [
-              'app/main.py',
-              'main.py',
-              'app/static/app.js',
-              'static/app.js',
-              'requirements.txt',
-              'base64',
-              'PAYLOAD',
-              'tar ',
-              'tar.gz',
-              'zip',
-              'BEGIN',
-              'EOF',
+              'app/main.py', 'main.py', 'app/static/app.js', 'static/app.js',
+              'requirements.txt', 'base64', 'PAYLOAD', 'tar ', 'tar.gz',
+              'zip', 'BEGIN', 'EOF'
           ]
-          seen = set()
           for needle in needles:
               matches = [i for i, line in enumerate(lines) if needle.lower() in line.lower()]
               print(f'\n=== {needle}: {len(matches)} matches ===')
               for index in matches[:12]:
-                  key = (needle, index)
-                  if key in seen:
-                      continue
-                  seen.add(key)
                   start = max(0, index - 3)
                   end = min(len(lines), index + 5)
                   for number in range(start, end):
