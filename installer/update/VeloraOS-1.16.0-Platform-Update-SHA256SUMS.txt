@@ -1,0 +1,2 @@
+c3236f70a363916f687d0d4b975cc88bcec1d5ff7aa56fb119e8afb988aa8ba4  VeloraOS-Update-1.16.0-Platform-Update.sh
+9cf7c881a6ebcb37cfd847780df287429727630ff5c9fa22f4acb2fce1a5f89c  latest.json

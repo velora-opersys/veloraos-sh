@@ -1,14 +1,15 @@
 {
-  "version": "1.12.1",
+  "version": "1.16.0",
   "minimumVersion": "1.10.58",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.12.1-Time-Machine-Continuity-r3.sh",
-  "sha256": "e48993d8e2f2cc2bd0040e7294bb3bdbe052e4e6590834a9a0a5e914eb742023",
-  "title": "VeloraOS 1.12.1 - Time Machine Continuity",
-  "publishedAt": "2026-08-06T13:55:00Z",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.16.0-Platform-Update.sh",
+  "sha256": "c3236f70a363916f687d0d4b975cc88bcec1d5ff7aa56fb119e8afb988aa8ba4",
+  "title": "VeloraOS 1.16.0 - Platform Update",
+  "publishedAt": "2026-08-07T21:02:00Z",
   "releaseNotes": [
-    "Adds encrypted Time Machine checkpoint transfer between paired VeloraOS devices.",
-    "Includes the complete root-level application payload required by the VeloraOS updater contract.",
-    "Preserves user data, licensing, device identity, continuity keys, snapshots and rollback state during installation."
+    "Adds Activity Centre with live and persistent background-operation history across updates, transfers, automations and local intelligence.",
+    "Adds Velora Flow with manual, hourly and daily automations, safe actions, run history and Time Machine integration.",
+    "Adds the permissioned Velora Plugin SDK with declarative Command Palette contributions and explicit capability grants.",
+    "Adds private Local Intelligence for summaries, tags, tasks, classification, filename suggestions and local Knowledge reranking."
   ],
   "rebootRequired": false
 }
