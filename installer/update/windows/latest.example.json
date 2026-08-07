@@ -1,0 +1,11 @@
+{
+  "version": "1.16.0",
+  "packageUrl": "https://github.com/velora-opersys/veloraos-sh/releases/download/windows-v1.16.0/VeloraOS-Setup-1.16.0.exe",
+  "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "title": "VeloraOS 1.16.0 for Windows",
+  "publishedAt": "2026-08-07T21:02:00Z",
+  "releaseNotes": [
+    "Initial native Windows server package."
+  ],
+  "rebootRequired": false
+}
