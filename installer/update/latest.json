@@ -1,15 +1,16 @@
 {
-  "version": "1.16.0",
-  "minimumVersion": "1.10.58",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.16.0-Platform-Update.sh",
-  "sha256": "c3236f70a363916f687d0d4b975cc88bcec1d5ff7aa56fb119e8afb988aa8ba4",
-  "title": "VeloraOS 1.16.0 - Platform Update",
-  "publishedAt": "2026-08-07T21:02:00Z",
+  "version": "2.0.0",
+  "minimumVersion": "1.16.0",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-2.0.0-Aurora-Redesign.sh",
+  "sha256": "77cc9cf6cb364546c5b84c4784f004d89d8d050033aae83509133841ba4b9bfe",
+  "title": "VeloraOS 2.0.0 - Aurora Redesign",
+  "publishedAt": "2026-08-09T20:29:00Z",
   "releaseNotes": [
-    "Adds Activity Centre with live and persistent background-operation history across updates, transfers, automations and local intelligence.",
-    "Adds Velora Flow with manual, hourly and daily automations, safe actions, run history and Time Machine integration.",
-    "Adds the permissioned Velora Plugin SDK with declarative Command Palette contributions and explicit capability grants.",
-    "Adds private Local Intelligence for summaries, tags, tasks, classification, filename suggestions and local Knowledge reranking."
+    "Introduces the redesigned Aurora shell with a persistent workspace model across desktop and mobile.",
+    "Adds Today for recent work, system health, background activity, trusted devices and quick actions.",
+    "Evolves the Command Palette into Velora Search with command, device, Knowledge and settings scopes.",
+    "Adds the OLED-friendly Midnight appearance and applies the new design system across existing VeloraOS workspaces.",
+    "Preserves accounts, chats, Knowledge, Device Continuity, Time Machine, Flow, plugins, Activity Centre and Local Intelligence during in-place migration."
   ],
   "rebootRequired": false
 }
