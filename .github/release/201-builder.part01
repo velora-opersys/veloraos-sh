@@ -1,0 +1,39 @@
+)"; PAYLOAD_ARCHIVE="\$PAYLOAD_DIR/payload.tar.gz"
+PAYLOAD_SHA256="$PSHA"; PAYLOAD_BYTES="$PBYTES"
+log(){ printf '[VeloraOS update %s] %s\\n' "\$VERSION" "\$*"; }; die(){ printf '[Error] %s\\n' "\$*" >&2; exit 1; }; cleanup(){ rm -rf "\$PAYLOAD_DIR" 2>/dev/null||true; }; finish(){ local c=\$?;trap - EXIT INT TERM;cleanup;exit "\$c"; }; trap finish EXIT INT TERM
+NON_INTERACTIVE=0; for arg in "\$@";do case "\$arg" in --non-interactive) NON_INTERACTIVE=1;;-h|--help) echo 'Usage: sudo bash VeloraOS-Update-2.0.1-Aurora-Stability-GPU-Hotfix.sh --non-interactive';exit 0;;*) die "Unknown option: \$arg";;esac;done
+[[ "\$NON_INTERACTIVE" == 1 || "\${VELORAOS_NONINTERACTIVE:-0}" == 1 ]]||die 'This updater requires --non-interactive.'; [[ \${EUID:-\$(id -u)} -eq 0 ]]||die 'This updater must run as root.'; [[ -d "\$APP_ROOT" && -f "\$APP_ROOT/app/main.py" ]]||die 'The installed VeloraOS layout is incomplete.'; [[ -r /etc/veloraos/license ]]||die 'The existing VeloraOS licence file is missing.'
+for command in awk base64 tr sha256sum stat tar bash hostname;do command -v "\$command">/dev/null 2>&1||die "Required command is missing: \$command";done
+awk '{line=\$0;sub(/\\r\$/,"",line)} line=="__VELORA_PAYLOAD_BELOW__"{found=1;next}found{print}END{if(!found)exit 2}' "\$0"|tr -d '[:space:]'|base64 --decode>"\$PAYLOAD_ARCHIVE"||die 'The embedded application payload is missing or invalid.'
+[[ "\$(stat -c '%s' "\$PAYLOAD_ARCHIVE")" == "\$PAYLOAD_BYTES" && "\$(sha256sum "\$PAYLOAD_ARCHIVE"|awk '{print \$1}')" == "\$PAYLOAD_SHA256" ]]||die 'The embedded application payload checksum does not match.'
+tar -tzf "\$PAYLOAD_ARCHIVE">/dev/null||die 'The embedded application payload is not a valid archive.'; tar -xzf "\$PAYLOAD_ARCHIVE" -C "\$PAYLOAD_DIR"
+[[ -f "\$PAYLOAD_DIR/app/main.py" && -f "\$PAYLOAD_DIR/app/static/app-200010.js" && -f "\$PAYLOAD_DIR/app/static/logo-mark.svg" && -f "\$PAYLOAD_DIR/bin/veloraos-gpu-setup" && -f "\$PAYLOAD_DIR/veloraos-gpu-setup.service" && -f "\$PAYLOAD_DIR/installer/veloraos-install.sh" ]]||die 'The embedded application payload is incomplete.'
+grep -Fq 'VERSION = "2.0.1"' "\$PAYLOAD_DIR/app/main.py"||die 'Wrong payload version.'; grep -Fq 'function scheduleUpdatePoll(delay)' "\$PAYLOAD_DIR/app/static/app-200010.js"||die 'Refresh fix missing.'; grep -Fq '/api/diagnostics/gpu-repair' "\$PAYLOAD_DIR/app/main.py"||die 'GPU repair missing.'
+chmod 0755 "\$PAYLOAD_DIR/installer/veloraos-install.sh" "\$PAYLOAD_DIR/bin/veloraos-gpu-setup"; DEVICE_NAME="\$(cat /etc/veloraos/device-name 2>/dev/null||hostname)"; export VELORAOS_LICENSE_FILE=/etc/veloraos/license
+printf '%s\\n' "\$DEVICE_NAME"|/bin/bash "\$PAYLOAD_DIR/installer/veloraos-install.sh" --replace
+log 'VeloraOS 2.0.1 installed successfully.'; exit 0
+__VELORA_PAYLOAD_BELOW__
+EOF
+cat "$WORK/payload.b64">>"$UPD"; chmod 0755 "$UPD"; USHA="$(sha256sum "$UPD"|awk '{print $1}')"
+cat > installer/update/latest.json <<EOF
+{
+  "version": "2.0.1",
+  "minimumVersion": "1.16.0",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-2.0.1-Aurora-Stability-GPU-Hotfix.sh",
+  "sha256": "$USHA",
+  "title": "VeloraOS 2.0.1 - Aurora Stability & GPU Hotfix",
+  "publishedAt": "2026-08-09T21:47:00Z",
+  "releaseNotes": [
+    "Restores VeloraOS branding throughout Aurora.",
+    "Fixes repeated shell refreshes and change-gates background polling.",
+    "Restores Ollama GPU configuration during in-place updates.",
+    "Adds automatic GPU self-heal and a Diagnostics Repair GPU action.",
+    "Bumps PWA assets to generation 200010."
+  ],
+  "rebootRequired": false
+}
+EOF
+LSHA="$(sha256sum installer/update/latest.json|awk '{print $1}')"
+printf '%s  %s\n%s  %s\n' "$USHA" "$(basename "$UPD")" "$LSHA" latest.json > installer/update/VeloraOS-2.0.1-Aurora-Stability-GPU-Hotfix-SHA256SUMS.txt
+bash -n "$CUR"; bash -n "$UPD"; python3 -m json.tool installer/update/latest.json >/dev/null
+git config user.name veloraos-release-bot; git config user.email acti
