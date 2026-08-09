@@ -1,0 +1,3 @@
+ons@users.noreply.github.com
+git add "$CUR" "$UPD" installer/update/latest.json installer/update/VeloraOS-2.0.1-Aurora-Stability-GPU-Hotfix-SHA256SUMS.txt
+git commit -m 'Publish VeloraOS 2.0.1'; git push origin HEAD:main
