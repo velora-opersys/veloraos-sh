@@ -1,16 +1,16 @@
 {
-  "version": "2.0.0",
+  "version": "2.0.1",
   "minimumVersion": "1.16.0",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-2.0.0-Aurora-Redesign.sh",
-  "sha256": "77cc9cf6cb364546c5b84c4784f004d89d8d050033aae83509133841ba4b9bfe",
-  "title": "VeloraOS 2.0.0 - Aurora Redesign",
-  "publishedAt": "2026-08-09T20:29:00Z",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-2.0.1-Aurora-Stability-GPU-Hotfix.sh",
+  "sha256": "5461280e3a4ba11dadda7a9427d241e5f7686d832ce2de9f500b81560886b740",
+  "title": "VeloraOS 2.0.1 - Aurora Stability & GPU Hotfix",
+  "publishedAt": "2026-08-09T21:47:00Z",
   "releaseNotes": [
-    "Introduces the redesigned Aurora shell with a persistent workspace model across desktop and mobile.",
-    "Adds Today for recent work, system health, background activity, trusted devices and quick actions.",
-    "Evolves the Command Palette into Velora Search with command, device, Knowledge and settings scopes.",
-    "Adds the OLED-friendly Midnight appearance and applies the new design system across existing VeloraOS workspaces.",
-    "Preserves accounts, chats, Knowledge, Device Continuity, Time Machine, Flow, plugins, Activity Centre and Local Intelligence during in-place migration."
+    "Restores VeloraOS branding throughout Aurora.",
+    "Fixes repeated shell refreshes and change-gates background polling.",
+    "Restores Ollama GPU configuration during in-place updates.",
+    "Adds automatic GPU self-heal and a Diagnostics Repair GPU action.",
+    "Bumps PWA assets to generation 200010."
   ],
   "rebootRequired": false
 }
