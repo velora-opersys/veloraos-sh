@@ -1,21 +1,20 @@
 name: Publish VeloraOS 2.0.1
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - .github/workflows/publish-veloraos-2.0.1.yml
+  pull_request:
+    types: [opened, synchronize]
 
 permissions:
   contents: write
 
 jobs:
   publish:
-    if: github.event.head_commit.message == 'Prepare VeloraOS 2.0.1 release builder'
+    if: github.head_ref == 'agent/publish-veloraos-2.0.1'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: main
           fetch-depth: 0
       - name: Reconstruct and publish release
         shell: bash
@@ -29,5 +28,3 @@ jobs:
           test "$(sha256sum /tmp/build-2.0.1.sh | awk '{print $1}')" = "d51146dcd7bc8cd25f3778405b1d099867d99329e14709c40de8c16ded2840d2"
           chmod +x /tmp/build-2.0.1.sh
           /tmp/build-2.0.1.sh
-
-# explicit publish trigger
