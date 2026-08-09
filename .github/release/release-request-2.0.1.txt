@@ -3,3 +3,4 @@ Fast checkout publish attempt.
 Byte-safe builder publish attempt.
 Live-manifest base validation attempt.
 Manifest-selected base publish attempt.
+Trace live-base builder failure.
