@@ -21,9 +21,12 @@ jobs:
         run: |
           set -Eeuo pipefail
           cat .github/release/201-patch.part* > .github/release/veloraos-2.0.1.patch.gz.b64
-          cat .github/release/201-builder.part* > /tmp/build-2.0.1.sh
+          cat .github/release/201-builder.b64.part* > /tmp/build-2.0.1.sh.b64
           test "$(wc -c < .github/release/veloraos-2.0.1.patch.gz.b64)" = "26956"
           test "$(sha256sum .github/release/veloraos-2.0.1.patch.gz.b64 | awk '{print $1}')" = "62fcddb10fe72a4ea0feb9078ead18245d2ecb7c1fd2cd9322be59165068d7bf"
+          test "$(wc -c < /tmp/build-2.0.1.sh.b64)" = "10964"
+          test "$(sha256sum /tmp/build-2.0.1.sh.b64 | awk '{print $1}')" = "a9e4c31957dff23068f00810273fbca0c861b3f52b0998da7bf4dfcb9e00d8ee"
+          base64 --decode /tmp/build-2.0.1.sh.b64 > /tmp/build-2.0.1.sh
           test "$(wc -c < /tmp/build-2.0.1.sh)" = "8221"
           test "$(sha256sum /tmp/build-2.0.1.sh | awk '{print $1}')" = "d51146dcd7bc8cd25f3778405b1d099867d99329e14709c40de8c16ded2840d2"
           chmod +x /tmp/build-2.0.1.sh
