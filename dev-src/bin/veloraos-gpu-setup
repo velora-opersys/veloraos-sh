@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+OVERRIDE_DIR="/etc/systemd/system/ollama.service.d"
+OVERRIDE_FILE="$OVERRIDE_DIR/veloraos-gpu.conf"
+
+command_exists(){ command -v "$1" >/dev/null 2>&1; }
+
+graphics="$(command_exists lspci && lspci -nn 2>/dev/null || true)"
+gpu_lines="$(printf '%s\n' "$graphics" | grep -Ei 'VGA|3D|Display' || true)"
+actual="$(printf '%s\n' "$gpu_lines" | grep -Eiv '\[1234:1111\]|QEMU|Virtio|VMware|VirtualBox' || true)"
+
+vendor="none"
+if printf '%s\n' "$actual" | grep -Eqi '\[10de:'; then vendor="nvidia"
+elif printf '%s\n' "$actual" | grep -Eqi '\[1002:'; then vendor="amd"
+elif printf '%s\n' "$actual" | grep -Eqi '\[8086:'; then vendor="intel"
+fi
+
+if id ollama >/dev/null 2>&1; then
+  usermod -aG render,video ollama 2>/dev/null || true
+fi
+
+mkdir -p "$OVERRIDE_DIR"
+case "$vendor" in
+  amd)
+    {
+      printf '[Service]\n'
+      printf 'Environment="OLLAMA_VULKAN=1"\n'
+      if printf '%s\n' "$gpu_lines" | grep -Eqi '\[1002:743f\]'; then
+        printf 'Environment="HSA_OVERRIDE_GFX_VERSION=10.3.0"\n'
+      fi
+    } > "$OVERRIDE_FILE"
+    ;;
+  intel)
+    printf '[Service]\nEnvironment="OLLAMA_VULKAN=1"\n' > "$OVERRIDE_FILE"
+    ;;
+  nvidia)
+    # NVIDIA/CUDA detection is automatic. Remove stale Vulkan/HSA overrides.
+    rm -f "$OVERRIDE_FILE"
+    ;;
+  *)
+    # Do not force a backend when no compatible physical GPU is visible.
+    rm -f "$OVERRIDE_FILE"
+    ;;
+esac
+
+systemctl daemon-reload
+if systemctl list-unit-files ollama.service >/dev/null 2>&1; then
+  systemctl restart ollama || true
+fi
+
+printf 'VeloraOS GPU configuration: %s\n' "$vendor"

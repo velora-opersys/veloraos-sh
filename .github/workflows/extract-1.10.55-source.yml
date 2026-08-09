@@ -1,0 +1,50 @@
+name: Extract VeloraOS 1.10.55 payload source
+
+on:
+  push:
+    branches:
+      - build/1.10.56
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: build/1.10.56
+          fetch-depth: 0
+
+      - name: Extract signed 1.10.55 payload
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          UPDATER='installer/update/VeloraOS-Update-1.10.55-iOS-Layout-Keyboard-Polish.sh'
+          rm -rf dev-src
+          mkdir -p dev-src
+          awk '{line=$0; sub(/\r$/, "", line)} line=="__VELORA_PAYLOAD_BELOW__" {found=1; next} found {print} END {if (!found) exit 2}' "$UPDATER" \
+            | tr -d '[:space:]' \
+            | base64 --decode > /tmp/veloraos-1.10.55-payload.tar.gz
+          tar -xzf /tmp/veloraos-1.10.55-payload.tar.gz -C dev-src
+          printf 'Extracted from %s\n' "$UPDATER" > dev-src/EXTRACTED_FROM.txt
+          find dev-src -type f | sort > dev-src/FILES.txt
+
+      - name: Commit extracted development source
+        if: github.event_name == 'push' && github.actor != 'github-actions[bot]'
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          git config user.name 'VeloraOS Build Bot'
+          git config user.email 'build-bot@veloraos.local'
+          git add dev-src
+          if git diff --cached --quiet; then
+            echo 'No extraction changes to commit.'
+            exit 0
+          fi
+          git commit -m 'Extract 1.10.55 payload source [skip ci]'
+          git push origin HEAD:build/1.10.56

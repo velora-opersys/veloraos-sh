@@ -1,0 +1,23 @@
+[Unit]
+Description=VeloraOS verified update installer
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=root
+Group=root
+UMask=0077
+Environment=VELORAOS_STATE_DIR=/var/lib/veloraos
+Environment=VELORAOS_UPDATE_STATE_FILE=/var/lib/veloraos/update-state.json
+Environment=VELORAOS_UPDATE_LOG_FILE=/var/lib/veloraos/update.log
+Environment=VELORAOS_UPDATE_PENDING_FILE=/var/lib/veloraos/update/pending.json
+Environment=VELORAOS_UPDATE_SERVICE_LOCK=/run/lock/veloraos-update.lock
+Environment=VELORAOS_VERSION_FILE=/opt/veloraos/VERSION
+ExecStart=/usr/local/sbin/veloraos-update-runner
+PrivateTmp=true
+ProtectHome=true
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

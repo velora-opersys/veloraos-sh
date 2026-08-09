@@ -1,0 +1,1 @@
+Extracted from installer/update/VeloraOS-Update-1.10.55-iOS-Layout-Keyboard-Polish.sh

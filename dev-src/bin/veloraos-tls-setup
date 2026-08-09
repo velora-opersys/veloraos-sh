@@ -1,0 +1,85 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+TLS_DIR="${VELORAOS_TLS_DIR:-/etc/veloraos/tls}"
+PUBLIC_DIR="${VELORAOS_TLS_PUBLIC_DIR:-/var/lib/veloraos-public}"
+SYSTEM_CA_TARGET="${VELORAOS_SYSTEM_CA_TARGET:-/usr/local/share/ca-certificates/veloraos-local-ca.crt}"
+
+CA_KEY="$TLS_DIR/ca.key"
+CA_CERT="$TLS_DIR/ca.crt"
+DEVICE_KEY="$TLS_DIR/device.key"
+DEVICE_CSR="$TLS_DIR/device.csr"
+DEVICE_CERT="$TLS_DIR/device.crt"
+CONF="$TLS_DIR/device-openssl.cnf"
+PUBLIC_CA="$PUBLIC_DIR/veloraos-local-ca.crt"
+
+HOST_SHORT="$(hostname -s 2>/dev/null || hostname)"
+HOST_FQDN="$(hostname -f 2>/dev/null || hostname)"
+
+install -d -m 0700 "$TLS_DIR"
+install -d -m 0755 "$PUBLIC_DIR"
+
+# The appliance CA is permanent identity. Normal installs/upgrades MUST NOT
+# rotate it. A new CA is created only when one does not already exist.
+if [[ ! -s "$CA_KEY" || ! -s "$CA_CERT" ]]; then
+  rm -f "$CA_KEY" "$CA_CERT" "$TLS_DIR/ca.srl"
+  openssl genrsa -out "$CA_KEY" 3072 >/dev/null 2>&1
+  chmod 0600 "$CA_KEY"
+  openssl req -x509 -new -sha256 -days 3650 -key "$CA_KEY" -out "$CA_CERT" \
+    -subj "/O=VeloraOS/CN=VeloraOS Local CA" >/dev/null 2>&1
+  chmod 0644 "$CA_CERT"
+fi
+
+# Preserve the current device key/certificate whenever it is still valid,
+# signed by this CA and has at least 30 days remaining. This prevents browser
+# certificate identity changing on every VeloraOS software update.
+RENEW_DEVICE=0
+if [[ ! -s "$DEVICE_KEY" || ! -s "$DEVICE_CERT" ]]; then
+  RENEW_DEVICE=1
+elif ! openssl verify -CAfile "$CA_CERT" "$DEVICE_CERT" >/dev/null 2>&1; then
+  RENEW_DEVICE=1
+elif ! openssl x509 -checkend 2592000 -noout -in "$DEVICE_CERT" >/dev/null 2>&1; then
+  RENEW_DEVICE=1
+fi
+
+if [[ "$RENEW_DEVICE" == "1" ]]; then
+  SAN="DNS:${HOST_SHORT},DNS:${HOST_SHORT}.local,DNS:${HOST_FQDN},DNS:veloraos.local,IP:127.0.0.1"
+  for ip in $(hostname -I 2>/dev/null || true); do
+    case "$ip" in *:*) ;; *) SAN="$SAN,IP:$ip" ;; esac
+  done
+
+  cat > "$CONF" <<EOF
+[req]
+distinguished_name = dn
+prompt = no
+req_extensions = req_ext
+[dn]
+O = VeloraOS
+CN = ${HOST_SHORT}.local
+[req_ext]
+subjectAltName = ${SAN}
+[cert_ext]
+subjectAltName = ${SAN}
+basicConstraints = critical,CA:FALSE
+keyUsage = critical,digitalSignature,keyEncipherment
+extendedKeyUsage = serverAuth
+EOF
+
+  rm -f "$DEVICE_CSR"
+  openssl genrsa -out "$DEVICE_KEY" 2048 >/dev/null 2>&1
+  chmod 0600 "$DEVICE_KEY"
+  openssl req -new -key "$DEVICE_KEY" -out "$DEVICE_CSR" -config "$CONF" >/dev/null 2>&1
+  openssl x509 -req -sha256 -days 397 -in "$DEVICE_CSR" -CA "$CA_CERT" -CAkey "$CA_KEY" -CAcreateserial \
+    -out "$DEVICE_CERT" -extfile "$CONF" -extensions cert_ext >/dev/null 2>&1
+  chmod 0644 "$DEVICE_CERT"
+  rm -f "$DEVICE_CSR" "$CONF"
+fi
+
+# Publish only the public CA certificate from a world-readable directory.
+# Private TLS material remains protected under /etc/veloraos/tls (0700).
+install -m 0644 "$CA_CERT" "$PUBLIC_CA"
+
+if [[ "${VELORAOS_SKIP_SYSTEM_CA:-0}" != "1" ]]; then
+  install -m 0644 "$CA_CERT" "$SYSTEM_CA_TARGET"
+  update-ca-certificates >/dev/null 2>&1 || true
+fi

@@ -1,0 +1,227 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+
+import fcntl
+import hashlib
+import json
+import os
+import re
+import subprocess
+import sys
+import tempfile
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Any, Dict
+
+STATE_DIR = Path(os.environ.get("VELORAOS_STATE_DIR", "/var/lib/veloraos"))
+STATE_FILE = Path(os.environ.get("VELORAOS_UPDATE_STATE_FILE", str(STATE_DIR / "update-state.json")))
+LOG_FILE = Path(os.environ.get("VELORAOS_UPDATE_LOG_FILE", str(STATE_DIR / "update.log")))
+PENDING_FILE = Path(os.environ.get("VELORAOS_UPDATE_PENDING_FILE", str(STATE_DIR / "update" / "pending.json")))
+LOCK_FILE = Path(os.environ.get("VELORAOS_UPDATE_SERVICE_LOCK", "/run/lock/veloraos-update.lock"))
+VERSION_FILE = Path(os.environ.get("VELORAOS_VERSION_FILE", "/opt/veloraos/VERSION"))
+SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
+SENSITIVE_PATTERNS = [
+    re.compile(r"VLOS(?:-[A-HJ-NP-Z2-9]{4}){5}", re.I),
+    re.compile(r"(?i)\b(?:password|passwd|token|secret|csrf|license(?:key)?)\b\s*[:=]\s*\S+"),
+    re.compile(r"(?i)\bBearer\s+[A-Za-z0-9._~+/=-]+"),
+    re.compile(r"\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b", re.I),
+    re.compile(r"\b(?:\d{1,3}\.){3}\d{1,3}\b"),
+    re.compile(r"/home/[^/\s]+"),
+]
+
+
+def iso_now() -> str:
+    return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+
+
+def sanitize(value: Any, limit: int = 2000) -> str:
+    text = str(value or "").replace("\x00", "").strip()
+    for pattern in SENSITIVE_PATTERNS:
+        text = pattern.sub("[redacted]", text)
+    text = re.sub(r"[\r\n\t]+", " ", text)
+    text = re.sub(r"\s{2,}", " ", text).strip()
+    return text[:limit]
+
+
+def atomic_json(path: Path, data: Dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    os.chmod(path.parent, 0o700)
+    fd, tmp_name = tempfile.mkstemp(prefix=f".{path.name}.", dir=str(path.parent))
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as handle:
+            json.dump(data, handle, indent=2, ensure_ascii=False)
+            handle.write("\n")
+            handle.flush()
+            os.fsync(handle.fileno())
+        os.chmod(tmp_name, 0o600)
+        os.replace(tmp_name, path)
+    finally:
+        try:
+            os.unlink(tmp_name)
+        except FileNotFoundError:
+            pass
+
+
+def read_json(path: Path) -> Dict[str, Any]:
+    try:
+        value = json.loads(path.read_text(encoding="utf-8"))
+        return value if isinstance(value, dict) else {}
+    except (OSError, ValueError, TypeError, json.JSONDecodeError):
+        return {}
+
+
+def append_log(message: Any) -> None:
+    safe = sanitize(message)
+    if not safe:
+        return
+    LOG_FILE.parent.mkdir(parents=True, exist_ok=True)
+    os.chmod(LOG_FILE.parent, 0o700)
+    with LOG_FILE.open("a", encoding="utf-8") as handle:
+        handle.write(f"{iso_now()} {safe}\n")
+    os.chmod(LOG_FILE, 0o600)
+    try:
+        lines = LOG_FILE.read_text(encoding="utf-8", errors="replace").splitlines()
+        if len(lines) > 500:
+            LOG_FILE.write_text("\n".join(lines[-500:]) + "\n", encoding="utf-8")
+            os.chmod(LOG_FILE, 0o600)
+    except OSError:
+        pass
+
+
+def set_state(**changes: Any) -> Dict[str, Any]:
+    state = read_json(STATE_FILE)
+    state.update(changes)
+    if state.get("error"):
+        state["error"] = sanitize(state["error"], 500)
+    if state.get("message"):
+        state["message"] = sanitize(state["message"], 500)
+    atomic_json(STATE_FILE, state)
+    return state
+
+
+def checksum(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def write_version(version: str) -> None:
+    VERSION_FILE.parent.mkdir(parents=True, exist_ok=True)
+    fd, tmp_name = tempfile.mkstemp(prefix=".VERSION.", dir=str(VERSION_FILE.parent))
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as handle:
+            handle.write(version + "\n")
+            handle.flush()
+            os.fsync(handle.fileno())
+        os.chmod(tmp_name, 0o644)
+        os.replace(tmp_name, VERSION_FILE)
+    finally:
+        try:
+            os.unlink(tmp_name)
+        except FileNotFoundError:
+            pass
+
+
+def fail(message: str, code: int = 1) -> int:
+    safe = sanitize(message, 500) or "The update failed."
+    append_log(safe)
+    set_state(state="failed", error=safe, message=safe)
+    return code
+
+
+def main() -> int:
+    LOCK_FILE.parent.mkdir(parents=True, exist_ok=True)
+    with LOCK_FILE.open("a+") as lock_handle:
+        try:
+            fcntl.flock(lock_handle.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError:
+            return fail("Another VeloraOS update is already running.", 75)
+
+        pending = read_json(PENDING_FILE)
+        version = str(pending.get("version") or "").strip()
+        script = Path(str(pending.get("scriptPath") or ""))
+        expected = str(pending.get("sha256") or "").strip().lower()
+        reboot_required = bool(pending.get("rebootRequired"))
+        if not version or not script.is_file() or not SHA256_RE.fullmatch(expected):
+            return fail("The pending update request is incomplete or invalid.")
+        try:
+            actual = checksum(script)
+        except OSError:
+            return fail("The downloaded update script could not be read.")
+        if actual != expected:
+            return fail("The update checksum changed before installation. Installation was cancelled.")
+
+        syntax = subprocess.run(
+            ["/bin/bash", "-n", str(script)],
+            capture_output=True,
+            text=True,
+            check=False,
+            timeout=30,
+        )
+        if syntax.returncode != 0:
+            return fail("The downloaded update script failed its final syntax check.")
+
+        append_log(f"Installing VeloraOS {version} through the dedicated update service.")
+        set_state(state="installing", error=None, message=f"Installing VeloraOS {version}…")
+        environment = os.environ.copy()
+        environment.update(
+            {
+                "VELORAOS_NONINTERACTIVE": "1",
+                "DEBIAN_FRONTEND": "noninteractive",
+                "HOME": "/root",
+            }
+        )
+        try:
+            process = subprocess.Popen(
+                ["/bin/bash", str(script), "--non-interactive"],
+                stdout=subprocess.PIPE,
+                stderr=subprocess.STDOUT,
+                text=True,
+                bufsize=1,
+                env=environment,
+                cwd="/opt/veloraos" if Path("/opt/veloraos").is_dir() else "/",
+            )
+            assert process.stdout is not None
+            for line in process.stdout:
+                safe = sanitize(line)
+                if safe:
+                    append_log(safe)
+            return_code = process.wait()
+        except (OSError, subprocess.SubprocessError) as exc:
+            return fail(f"The update process could not be started: {sanitize(exc)}")
+
+        if return_code != 0:
+            return fail("The update script reported a failure. The existing VeloraOS installation has been kept or restored.")
+
+        try:
+            write_version(version)
+        except OSError:
+            return fail("The update installed, but VeloraOS could not record the completed version.")
+
+        completed = iso_now()
+        append_log(f"VeloraOS {version} installed successfully.")
+        set_state(
+            state="complete",
+            installedVersion=version,
+            latestVersion=version,
+            updateAvailable=False,
+            error=None,
+            message=("Update complete. Reboot the system to finish." if reboot_required else "Update complete. VeloraOS is ready."),
+            completedAt=completed,
+            rebootRequired=reboot_required,
+        )
+        try:
+            script.unlink()
+        except OSError:
+            pass
+        try:
+            PENDING_FILE.unlink()
+        except OSError:
+            pass
+        return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
