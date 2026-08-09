@@ -21,7 +21,7 @@ jobs:
         run: |
           set -Eeuo pipefail
           cat .github/release/201-patch.part* > .github/release/veloraos-2.0.1.patch.gz.b64
-          cat .github/release/201-builder.b64.part* > /tmp/build-2.0.1.sh.b64
+          cat .github/release/201-builder-safe.part* > /tmp/build-2.0.1.sh.b64
           test "$(wc -c < .github/release/veloraos-2.0.1.patch.gz.b64)" = "26956"
           test "$(sha256sum .github/release/veloraos-2.0.1.patch.gz.b64 | awk '{print $1}')" = "62fcddb10fe72a4ea0feb9078ead18245d2ecb7c1fd2cd9322be59165068d7bf"
           test "$(wc -c < /tmp/build-2.0.1.sh.b64)" = "11208"
