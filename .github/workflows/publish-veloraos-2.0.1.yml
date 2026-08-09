@@ -30,4 +30,4 @@ jobs:
           test "$(wc -c < /tmp/build-2.0.1.sh)" = "8405"
           test "$(sha256sum /tmp/build-2.0.1.sh | awk '{print $1}')" = "62ab33212d8f088fb2c9f37c6d71e44147131390224fcd7bd92410043fa9a9f3"
           chmod +x /tmp/build-2.0.1.sh
-          /tmp/build-2.0.1.sh
+          bash -x /tmp/build-2.0.1.sh
