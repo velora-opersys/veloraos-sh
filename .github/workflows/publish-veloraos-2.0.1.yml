@@ -29,5 +29,27 @@ jobs:
           base64 --decode /tmp/build-2.0.1.sh.b64 > /tmp/build-2.0.1.sh
           test "$(wc -c < /tmp/build-2.0.1.sh)" = "8405"
           test "$(sha256sum /tmp/build-2.0.1.sh | awk '{print $1}')" = "62ab33212d8f088fb2c9f37c6d71e44147131390224fcd7bd92410043fa9a9f3"
+          bash -n /tmp/build-2.0.1.sh
+          BASE="installer/update/VeloraOS-Update-2.0.0-Aurora-Redesign.sh"
+          test -f "$BASE"
+          test -f installer/update/latest.json
+          echo "base-bytes=$(wc -c < "$BASE")"
+          echo "base-sha=$(sha256sum "$BASE" | awk '{print $1}')"
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          m=json.load(open('installer/update/latest.json'))
+          print('live-version='+str(m.get('version')))
+          print('live-script='+Path(m.get('scriptUrl','')).name)
+          print('live-sha='+str(m.get('sha256')))
+          PY
+          python3 - "$BASE" <<'PY'
+          from pathlib import Path
+          import sys
+          b=Path(sys.argv[1]).read_bytes()
+          marker=b'__VELORA_PAYLOAD_BELOW__\n'
+          print('marker-count='+str(b.count(marker)))
+          print('marker-last='+str(b.rfind(marker)))
+          PY
           chmod +x /tmp/build-2.0.1.sh
-          bash -x /tmp/build-2.0.1.sh
+          /tmp/build-2.0.1.sh
