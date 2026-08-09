@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+BASE="installer/update/VeloraOS-Update-2.0.0-Aurora-Redesign.sh"
+EXPECTED_BASE_SHA="77cc9cf6cb364546c5b84c4784f004d89d8d050033aae83509133841ba4b9bfe"
+[[ -f "$BASE" && "$(sha256sum "$BASE" | awk '{print $1}')" == "$EXPECTED_BASE_SHA" ]]
+WORK="$(mktemp -d)"; trap 'rm -rf "$WORK"' EXIT; mkdir -p "$WORK/src"
+python3 - "$BASE" "$WORK/base.tar.gz" <<'PY'
+from pathlib import Path
+import base64,sys
+b=Path(sys.argv[1]).read_bytes(); m=b'__VELORA_PAYLOAD_BELOW__\n'; i=b.rfind(m)
+if i<0: raise SystemExit('payload marker missing')
+Path(sys.argv[2]).write_bytes(base64.b64decode(b''.join(b[i+len(m):].split())))
+PY
+tar -xzf "$WORK/base.tar.gz" -C "$WORK/src"
+rm -f "$WORK/src/payload.tar.gz" "$WORK/src/BUILD-INFO.txt" "$WORK/src/CHANGELOG.md" "$WORK/src/README.md"
+cat .github/release/veloraos-2.0.1.patch.gz.b64 | base64 --decode | gzip -dc > "$WORK/hotfix.patch"
+patch -d "$WORK/src" -p1 < "$WORK/hotfix.patch"
+cat > "$WORK/src/veloraos-gpu-setup.service" <<'EOF'
+[Unit]
+Description=VeloraOS GPU acceleration self-heal
+After=network-online.target ollama.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/veloraos-gpu-setup --quiet
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
+EOF
+rm -f "$WORK/src"/app/static/app-*.js "$WORK/src"/app/static/style-*.css
+cp "$WORK/src/app/static/app.js" "$WORK/src/app/static/app-200010.js"
+cp "$WORK/src/app/static/style.css" "$WORK/src/app/static/style-200010.css"
+rm -rf "$WORK/src/installer/update"
+grep -Fq 'VERSION = "2.0.1"' "$WORK/src/app/main.py"
+grep -Fq 'logo-mark.svg?v=200010' "$WORK/src/app/static/app-200010.js"
+grep -Fq 'function scheduleUpdatePoll(delay)' "$WORK/src/app/static/app-200010.js"
+grep -Fq '/api/diagnostics/gpu-repair' "$WORK/src/app/main.py"
+grep -Fq 'ExecStart=/usr/local/sbin/veloraos-gpu-setup --quiet' "$WORK/src/veloraos-gpu-setup.service"
+chmod 0755 "$WORK/src/installer/veloraos-install.sh" "$WORK/src/bin/veloraos-gpu-setup"
+(cd "$WORK/src" && tar --sort=name --mtime='UTC 2026-08-09 21:47:00' --owner=0 --group=0 --numeric-owner -czf "$WORK/payload.tar.gz" .)
+PSHA="$(sha256sum "$WORK/payload.tar.gz"|awk '{print $1}')"; PBYTES="$(stat -c '%s' "$WORK/payload.tar.gz")"; base64 -w76 "$WORK/payload.tar.gz" > "$WORK/payload.b64"
+mkdir -p installer/current installer/update
+CUR="installer/current/VeloraOS-Install-2.0.1-Aurora-Stability-GPU-Hotfix.sh"
+cat > "$CUR" <<EOF
+#!/usr/bin/env bash
+set -Eeuo pipefail
+PAYLOAD_SHA256="$PSHA"
+PAYLOAD_BYTES="$PBYTES"
+MARKER="__VELORAOS_201_CURRENT_PAYLOAD__"
+TMPDIR="\$(mktemp -d /tmp/veloraos-2.0.1-current.XXXXXX)"
+cleanup(){ rm -rf "\$TMPDIR"; }; trap cleanup EXIT INT TERM
+[[ \${EUID:-\$(id -u)} -eq 0 ]] || { echo 'Run this script with sudo.' >&2; exit 1; }
+for command in awk base64 tr sha256sum stat tar; do command -v "\$command" >/dev/null 2>&1 || { echo "Required command is missing: \$command" >&2; exit 1; }; done
+P="\$TMPDIR/payload.tar.gz"
+awk -v marker="\$MARKER" '{line=\$0;sub(/\\r\$/,"",line)} line==marker{found=1;next}found{print}END{if(!found)exit 2}' "\$0"|tr -d '[:space:]'|base64 --decode>"\$P" || exit 1
+[[ "\$(stat -c '%s' "\$P")" == "\$PAYLOAD_BYTES" && "\$(sha256sum "\$P"|awk '{print \$1}')" == "\$PAYLOAD_SHA256" ]] || { echo 'Installer payload integrity check failed.' >&2; exit 1; }
+tar -tzf "\$P" >/dev/null; mkdir -p "\$TMPDIR/source"; tar -xzf "\$P" -C "\$TMPDIR/source"
+[[ -f "\$TMPDIR/source/app/main.py" && -f "\$TMPDIR/source/app/static/logo-mark.svg" && -f "\$TMPDIR/source/bin/veloraos-gpu-setup" ]] || exit 1
+chmod 0755 "\$TMPDIR/source/installer/veloraos-install.sh"
+exec /bin/bash "\$TMPDIR/source/installer/veloraos-install.sh" "\$@"
+__VELORAOS_201_CURRENT_PAYLOAD__
+EOF
+cat "$WORK/payload.b64">>"$CUR"; chmod 0755 "$CUR"
+UPD="installer/update/VeloraOS-Update-2.0.1-Aurora-Stability-GPU-Hotfix.sh"
+cat > "$UPD" <<EOF
+#!/usr/bin/env bash
+set -Eeuo pipefail
+VERSION="2.0.1"; APP_ROOT="/opt/veloraos"; PAYLOAD_DIR="\$(mktemp -d /tmp/veloraos-update-payload.XXXXXX
