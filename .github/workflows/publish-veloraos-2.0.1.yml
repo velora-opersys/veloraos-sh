@@ -20,7 +20,7 @@ jobs:
         shell: bash
         run: |
           set -Eeuo pipefail
-          cat .github/release/201-patch.part* > .github/release/veloraos-2.0.1.patch.gz.b64
+          cat .github/release/201-patch.part00 .github/release/201-patch.part01 .github/release/201-patch.part02 .github/release/201-patch.part03 .github/release/201-patch-tail.part00 .github/release/201-patch-tail.part01 .github/release/201-patch-tail.part02 > .github/release/veloraos-2.0.1.patch.gz.b64
           cat .github/release/201-builder-safe.part* > /tmp/build-2.0.1.sh.b64
           test "$(wc -c < .github/release/veloraos-2.0.1.patch.gz.b64)" = "26956"
           test "$(sha256sum .github/release/veloraos-2.0.1.patch.gz.b64 | awk '{print $1}')" = "62fcddb10fe72a4ea0feb9078ead18245d2ecb7c1fd2cd9322be59165068d7bf"
@@ -30,26 +30,5 @@ jobs:
           test "$(wc -c < /tmp/build-2.0.1.sh)" = "8405"
           test "$(sha256sum /tmp/build-2.0.1.sh | awk '{print $1}')" = "62ab33212d8f088fb2c9f37c6d71e44147131390224fcd7bd92410043fa9a9f3"
           bash -n /tmp/build-2.0.1.sh
-          BASE="installer/update/VeloraOS-Update-2.0.0-Aurora-Redesign.sh"
-          test -f "$BASE"
-          test -f installer/update/latest.json
-          echo "base-bytes=$(wc -c < "$BASE")"
-          echo "base-sha=$(sha256sum "$BASE" | awk '{print $1}')"
-          python3 - <<'PY'
-          import json
-          from pathlib import Path
-          m=json.load(open('installer/update/latest.json'))
-          print('live-version='+str(m.get('version')))
-          print('live-script='+Path(m.get('scriptUrl','')).name)
-          print('live-sha='+str(m.get('sha256')))
-          PY
-          python3 - "$BASE" <<'PY'
-          from pathlib import Path
-          import sys
-          b=Path(sys.argv[1]).read_bytes()
-          marker=b'__VELORA_PAYLOAD_BELOW__\n'
-          print('marker-count='+str(b.count(marker)))
-          print('marker-last='+str(b.rfind(marker)))
-          PY
           chmod +x /tmp/build-2.0.1.sh
           /tmp/build-2.0.1.sh
