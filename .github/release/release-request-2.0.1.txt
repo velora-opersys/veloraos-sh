@@ -1,1 +1,2 @@
 VeloraOS 2.0.1 release request.
+Fast checkout publish attempt.
