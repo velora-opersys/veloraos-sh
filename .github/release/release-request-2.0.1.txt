@@ -6,3 +6,4 @@ Manifest-selected base publish attempt.
 Trace live-base builder failure.
 Small-chunk byte-safe publish attempt.
 Diagnose checked-out 2.0.0 base.
+Exact byte-safe inputs publish attempt.
