@@ -24,10 +24,10 @@ jobs:
           cat .github/release/201-builder.b64.part* > /tmp/build-2.0.1.sh.b64
           test "$(wc -c < .github/release/veloraos-2.0.1.patch.gz.b64)" = "26956"
           test "$(sha256sum .github/release/veloraos-2.0.1.patch.gz.b64 | awk '{print $1}')" = "62fcddb10fe72a4ea0feb9078ead18245d2ecb7c1fd2cd9322be59165068d7bf"
-          test "$(wc -c < /tmp/build-2.0.1.sh.b64)" = "11240"
-          test "$(sha256sum /tmp/build-2.0.1.sh.b64 | awk '{print $1}')" = "0f2d8c0f4e6ca871beba330e9de7b92cc714342675e672091d3fa8619ae0132e"
+          test "$(wc -c < /tmp/build-2.0.1.sh.b64)" = "11208"
+          test "$(sha256sum /tmp/build-2.0.1.sh.b64 | awk '{print $1}')" = "3e886903a5e9afe29aa717455ada1adb83c949443d4ef30931ccdf1cd0e872bd"
           base64 --decode /tmp/build-2.0.1.sh.b64 > /tmp/build-2.0.1.sh
-          test "$(wc -c < /tmp/build-2.0.1.sh)" = "8428"
-          test "$(sha256sum /tmp/build-2.0.1.sh | awk '{print $1}')" = "4270b1f1cffcb7f1da93fbaa5f216d92363d6ed0c4afc391c04c2b156c71bdda"
+          test "$(wc -c < /tmp/build-2.0.1.sh)" = "8405"
+          test "$(sha256sum /tmp/build-2.0.1.sh | awk '{print $1}')" = "62ab33212d8f088fb2c9f37c6d71e44147131390224fcd7bd92410043fa9a9f3"
           chmod +x /tmp/build-2.0.1.sh
           /tmp/build-2.0.1.sh
