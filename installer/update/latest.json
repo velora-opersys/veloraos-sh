@@ -1,17 +1,15 @@
 {
-  "version": "2.0.1",
-  "minimumVersion": "1.16.0",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-2.0.1-Aurora-Stability-GPU-Hotfix-r1.sh",
-  "sha256": "b3a71a62f40d098e43874e7660018bcb0ce3420f9118f1e170f34e5d8b4ab0e5",
-  "title": "VeloraOS 2.0.1 - Aurora Stability & GPU Hotfix",
-  "publishedAt": "2026-08-10T06:36:23Z",
+  "version": "1.16.0",
+  "minimumVersion": "1.10.58",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-1.16.0-Platform-Update.sh",
+  "sha256": "c3236f70a363916f687d0d4b975cc88bcec1d5ff7aa56fb119e8afb988aa8ba4",
+  "title": "VeloraOS 1.16.0 - Platform Update",
+  "publishedAt": "2026-08-07T21:02:00Z",
   "releaseNotes": [
-    "Fixes Windows-compatible updater preflight recognition of the embedded payload checksum.",
-    "Restores VeloraOS branding throughout Aurora.",
-    "Fixes repeated shell refreshes and change-gates background polling.",
-    "Restores Ollama GPU configuration during in-place updates.",
-    "Adds automatic GPU self-heal and a Diagnostics Repair GPU action.",
-    "Bumps PWA assets to generation 200010."
+    "Adds Activity Centre with live and persistent background-operation history across updates, transfers, automations and local intelligence.",
+    "Adds Velora Flow with manual, hourly and daily automations, safe actions, run history and Time Machine integration.",
+    "Adds the permissioned Velora Plugin SDK with declarative Command Palette contributions and explicit capability grants.",
+    "Adds private Local Intelligence for summaries, tags, tasks, classification, filename suggestions and local Knowledge reranking."
   ],
   "rebootRequired": false
 }
