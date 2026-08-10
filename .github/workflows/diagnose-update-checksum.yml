@@ -20,7 +20,7 @@ jobs:
         run: |
           set -Eeuo pipefail
           extract_payload() {
-            local script="$1" out="$2"
+            local script="$1" out="$2" dir="$3"
             python3 - "$script" "$out" <<'PY'
           from pathlib import Path
           import base64, sys
@@ -31,16 +31,20 @@ jobs:
               raise SystemExit('payload marker missing')
           Path(sys.argv[2]).write_bytes(base64.b64decode(b''.join(b[i + len(marker):].split())))
           PY
+            mkdir -p "$dir"
+            tar -xzf "$out" -C "$dir"
           }
-          BASE="installer/update/VeloraOS-Update-2.0.0-Aurora-Redesign.sh"
-          extract_payload "$BASE" /tmp/base.tar.gz
-          mkdir -p /tmp/src
-          tar -xzf /tmp/base.tar.gz -C /tmp/src
-          echo '=== updater.py validation region 260-540 ==='
-          sed -n '260,540p' /tmp/src/app/updater.py
-          echo '=== update runner 1-240 ==='
-          sed -n '1,240p' /tmp/src/installer/veloraos-update-runner.py
-          echo '=== known-good wrapper checksum declarations ==='
-          sed -n '1,140p' "$BASE" | grep -Ei 'sha|checksum|payload|embedded|archive|bytes' || true
-          echo '=== exact error variants across payload ==='
-          grep -RniEi 'declare.*checksum|embedded checksum|embedded.*sha|checksum.*declare|checksum.*script' /tmp/src 2>/dev/null || true
+          V116="installer/update/VeloraOS-Update-1.16.0-Platform-Update.sh"
+          V200="installer/update/VeloraOS-Update-2.0.0-Aurora-Redesign.sh"
+          extract_payload "$V116" /tmp/v116.tar.gz /tmp/v116
+          extract_payload "$V200" /tmp/v200.tar.gz /tmp/v200
+          echo '=== 1.16.0 exact embedded checksum errors ==='
+          grep -RniEi 'declare.*checksum|embedded checksum|embedded.*sha|checksum.*declare|payload.*sha|payload.*checksum' /tmp/v116/app /tmp/v116/installer 2>/dev/null | head -300 || true
+          echo '=== 1.16.0 updater validation functions ==='
+          grep -nEi 'script|checksum|sha256|embedded|payload' /tmp/v116/app/updater.py | head -220 || true
+          echo '=== 1.16.0 updater.py 400-540 ==='
+          sed -n '400,540p' /tmp/v116/app/updater.py
+          echo '=== 1.16.0 known-good wrapper header ==='
+          sed -n '1,120p' "$V116" | grep -Ei 'sha|checksum|payload|embedded|archive|bytes' || true
+          echo '=== 2.0.0 known-good wrapper header ==='
+          sed -n '1,120p' "$V200" | grep -Ei 'sha|checksum|payload|embedded|archive|bytes' || true
