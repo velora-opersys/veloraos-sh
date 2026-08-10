@@ -1,0 +1,38 @@
+name: Diagnose updater checksum parser
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+      - name: Inspect updater checksum parser
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          BASE="installer/update/VeloraOS-Update-2.0.0-Aurora-Redesign.sh"
+          python3 - "$BASE" /tmp/base.tar.gz <<'PY'
+          from pathlib import Path
+          import base64, sys
+          b = Path(sys.argv[1]).read_bytes()
+          marker = b'__VELORA_PAYLOAD_BELOW__\n'
+          i = b.rfind(marker)
+          if i < 0:
+              raise SystemExit('payload marker missing')
+          Path(sys.argv[2]).write_bytes(base64.b64decode(b''.join(b[i + len(marker):].split())))
+          PY
+          mkdir -p /tmp/src
+          tar -xzf /tmp/base.tar.gz -C /tmp/src
+          echo '=== exact error ==='
+          grep -RniF 'update does not declare its embedded checksum' /tmp/src || true
+          echo '=== checksum parser context ==='
+          grep -RniEi 'embedded.*checksum|checksum.*embedded|PAYLOAD.*SHA|sha256' /tmp/src/app /tmp/src/bin /tmp/src/installer 2>/dev/null | head -300 || true
