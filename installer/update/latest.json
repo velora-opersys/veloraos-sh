@@ -1,11 +1,12 @@
 {
   "version": "2.0.1",
   "minimumVersion": "1.16.0",
-  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-2.0.1-Aurora-Stability-GPU-Hotfix.sh",
-  "sha256": "5461280e3a4ba11dadda7a9427d241e5f7686d832ce2de9f500b81560886b740",
+  "scriptUrl": "https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-2.0.1-Aurora-Stability-GPU-Hotfix-r1.sh",
+  "sha256": "b3a71a62f40d098e43874e7660018bcb0ce3420f9118f1e170f34e5d8b4ab0e5",
   "title": "VeloraOS 2.0.1 - Aurora Stability & GPU Hotfix",
-  "publishedAt": "2026-08-09T21:47:00Z",
+  "publishedAt": "2026-08-10T06:36:23Z",
   "releaseNotes": [
+    "Fixes Windows-compatible updater preflight recognition of the embedded payload checksum.",
     "Restores VeloraOS branding throughout Aurora.",
     "Fixes repeated shell refreshes and change-gates background polling.",
     "Restores Ollama GPU configuration during in-place updates.",
