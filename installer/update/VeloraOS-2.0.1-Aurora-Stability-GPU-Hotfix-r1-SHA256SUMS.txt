@@ -1,2 +1,0 @@
-b3a71a62f40d098e43874e7660018bcb0ce3420f9118f1e170f34e5d8b4ab0e5  VeloraOS-Update-2.0.1-Aurora-Stability-GPU-Hotfix-r1.sh
-98cae06427215f10941c982cd20cc62090ad71dcd6054fe162ab5a509b1f8e49  latest.json
