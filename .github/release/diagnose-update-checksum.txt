@@ -1,0 +1,1 @@
+Inspect installed updater checksum parser for VeloraOS 2.0.1 compatibility.
