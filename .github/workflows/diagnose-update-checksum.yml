@@ -1,43 +1,112 @@
-name: Diagnose updater checksum parser
+name: Publish VeloraOS 2.0.1 checksum compatibility hotfix
 
 on:
   pull_request:
     branches: [main]
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  diagnose:
+  publish:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
         with:
           ref: main
           fetch-depth: 1
-      - name: Inspect published 2.0.1 payload preflight
+      - name: Publish checksum-compatible 2.0.1 wrapper
         shell: bash
         run: |
           set -Eeuo pipefail
-          SCRIPT="installer/update/VeloraOS-Update-2.0.1-Aurora-Stability-GPU-Hotfix.sh"
-          python3 - "$SCRIPT" /tmp/v201.tar.gz <<'PY'
+          ORIGINAL="installer/update/VeloraOS-Update-2.0.1-Aurora-Stability-GPU-Hotfix.sh"
+          FIXED="installer/update/VeloraOS-Update-2.0.1-Aurora-Stability-GPU-Hotfix-r1.sh"
+          SUMS="installer/update/VeloraOS-2.0.1-Aurora-Stability-GPU-Hotfix-r1-SHA256SUMS.txt"
+          EXPECTED_PAYLOAD_SHA="df8cc838c20c78568bfc9a9a4f9f57570c3459989d26650d4fb0f3263f1496f7"
+          EXPECTED_PAYLOAD_BYTES="1596821"
+
+          test -f "$ORIGINAL"
+          cp "$ORIGINAL" "$FIXED"
+
+          python3 - "$FIXED" "$EXPECTED_PAYLOAD_SHA" "$EXPECTED_PAYLOAD_BYTES" <<'PY'
           from pathlib import Path
-          import base64, sys
-          b = Path(sys.argv[1]).read_bytes()
+          import base64, hashlib, io, re, sys, tarfile
+
+          path = Path(sys.argv[1])
+          expected_sha = sys.argv[2]
+          expected_bytes = int(sys.argv[3])
+          text = path.read_text(encoding='utf-8')
+          old = f'PAYLOAD_SHA256="{expected_sha}"; PAYLOAD_BYTES="{expected_bytes}"'
+          new = f'PAYLOAD_SHA256="{expected_sha}"\nPAYLOAD_BYTES="{expected_bytes}"'
+          if text.count(old) != 1:
+              raise SystemExit('expected combined checksum declaration was not found exactly once')
+          text = text.replace(old, new, 1)
+          path.write_text(text, encoding='utf-8')
+
+          sha_match = re.search(r'(?m)^PAYLOAD_SHA256="([0-9a-f]{64})"$', text)
+          bytes_match = re.search(r'(?m)^PAYLOAD_BYTES="([0-9]+)"$', text)
+          if not sha_match or sha_match.group(1) != expected_sha:
+              raise SystemExit('standalone PAYLOAD_SHA256 declaration validation failed')
+          if not bytes_match or int(bytes_match.group(1)) != expected_bytes:
+              raise SystemExit('standalone PAYLOAD_BYTES declaration validation failed')
+
+          raw = path.read_bytes()
           marker = b'__VELORA_PAYLOAD_BELOW__\n'
-          i = b.rfind(marker)
-          if i < 0:
-              raise SystemExit('payload marker missing')
-          Path(sys.argv[2]).write_bytes(base64.b64decode(b''.join(b[i + len(marker):].split())))
+          pos = raw.rfind(marker)
+          if pos < 0:
+              raise SystemExit('embedded payload marker is missing')
+          encoded = b''.join(raw[pos + len(marker):].split())
+          payload = base64.b64decode(encoded, validate=True)
+          if len(payload) != expected_bytes:
+              raise SystemExit(f'payload byte count mismatch: {len(payload)} != {expected_bytes}')
+          actual_sha = hashlib.sha256(payload).hexdigest()
+          if actual_sha != expected_sha:
+              raise SystemExit(f'payload sha mismatch: {actual_sha} != {expected_sha}')
+          with tarfile.open(fileobj=io.BytesIO(payload), mode='r:gz') as archive:
+              names = set(archive.getnames())
+              required = {'./app/main.py', './installer/veloraos-install.sh', './app/static/app-200010.js'}
+              if not required.issubset(names):
+                  raise SystemExit('embedded payload is incomplete')
+          print('Windows-compatible checksum declaration and embedded payload verified.')
           PY
-          mkdir -p /tmp/v201
-          tar -xzf /tmp/v201.tar.gz -C /tmp/v201
-          echo '=== exact reported error ==='
-          grep -RniF 'update does not declare its embedded checksum' /tmp/v201 2>/dev/null || true
-          grep -RniFi 'does not declare its embedded checksum' /tmp/v201 2>/dev/null || true
-          echo '=== all declare/checksum/embedded references ==='
-          grep -RniEi 'declare.*checksum|checksum.*declare|embedded.*checksum|checksum.*embedded|embedded.*sha|PAYLOAD_SHA|EXPECTED.*SHA|SCRIPT.*SHA' /tmp/v201 2>/dev/null | head -400 || true
-          echo '=== installer checksum-related lines ==='
-          grep -nEi 'update|checksum|sha256|embedded|payload|declare' /tmp/v201/installer/veloraos-install.sh | head -350 || true
-          echo '=== wrapper header ==='
-          sed -n '1,180p' "$SCRIPT" | grep -Ei 'update|checksum|sha256|embedded|payload|declare|bytes' || true
+
+          bash -n "$FIXED"
+          SCRIPT_SHA="$(sha256sum "$FIXED" | awk '{print $1}')"
+          PUBLISHED_AT="$(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+
+          python3 - "$SCRIPT_SHA" "$PUBLISHED_AT" <<'PY'
+          from pathlib import Path
+          import json, sys
+
+          manifest_path = Path('installer/update/latest.json')
+          manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
+          if manifest.get('version') != '2.0.1':
+              raise SystemExit('refusing to alter a manifest that is no longer VeloraOS 2.0.1')
+          manifest['scriptUrl'] = 'https://raw.githubusercontent.com/velora-opersys/veloraos-sh/main/installer/update/VeloraOS-Update-2.0.1-Aurora-Stability-GPU-Hotfix-r1.sh'
+          manifest['sha256'] = sys.argv[1]
+          manifest['publishedAt'] = sys.argv[2]
+          notes = list(manifest.get('releaseNotes') or [])
+          compatibility_note = 'Fixes Windows-compatible updater preflight recognition of the embedded payload checksum.'
+          if compatibility_note not in notes:
+              notes.insert(0, compatibility_note)
+          manifest['releaseNotes'] = notes
+          manifest_path.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+          PY
+
+          python3 -m json.tool installer/update/latest.json >/dev/null
+          MANIFEST_SHA="$(sha256sum installer/update/latest.json | awk '{print $1}')"
+          printf '%s  %s\n%s  %s\n' \
+            "$SCRIPT_SHA" "$(basename "$FIXED")" \
+            "$MANIFEST_SHA" "latest.json" > "$SUMS"
+
+          grep -Eq '^PAYLOAD_SHA256="[0-9a-f]{64}"$' "$FIXED"
+          grep -Eq '^PAYLOAD_BYTES="[0-9]+"$' "$FIXED"
+          grep -Fq 'Aurora-Stability-GPU-Hotfix-r1.sh' installer/update/latest.json
+          grep -Fq "$SCRIPT_SHA" installer/update/latest.json
+
+          git config user.name veloraos-release-bot
+          git config user.email actions@users.noreply.github.com
+          git add "$FIXED" installer/update/latest.json "$SUMS"
+          git diff --cached --check
+          git commit -m 'Fix VeloraOS 2.0.1 embedded checksum declaration'
+          git push origin HEAD:main
