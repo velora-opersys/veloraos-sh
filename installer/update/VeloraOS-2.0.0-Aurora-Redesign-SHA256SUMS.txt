@@ -1,2 +1,0 @@
-77cc9cf6cb364546c5b84c4784f004d89d8d050033aae83509133841ba4b9bfe  VeloraOS-Update-2.0.0-Aurora-Redesign.sh
-0ce1cd1060c1232b093d81f1947be9edd7d3052c778a4e378cb376494877eaef  latest.json
