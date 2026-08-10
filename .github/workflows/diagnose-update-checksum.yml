@@ -19,8 +19,9 @@ jobs:
         shell: bash
         run: |
           set -Eeuo pipefail
-          BASE="installer/update/VeloraOS-Update-2.0.0-Aurora-Redesign.sh"
-          python3 - "$BASE" /tmp/base.tar.gz <<'PY'
+          extract_payload() {
+            local script="$1" out="$2"
+            python3 - "$script" "$out" <<'PY'
           from pathlib import Path
           import base64, sys
           b = Path(sys.argv[1]).read_bytes()
@@ -30,9 +31,16 @@ jobs:
               raise SystemExit('payload marker missing')
           Path(sys.argv[2]).write_bytes(base64.b64decode(b''.join(b[i + len(marker):].split())))
           PY
+          }
+          BASE="installer/update/VeloraOS-Update-2.0.0-Aurora-Redesign.sh"
+          extract_payload "$BASE" /tmp/base.tar.gz
           mkdir -p /tmp/src
           tar -xzf /tmp/base.tar.gz -C /tmp/src
-          echo '=== exact error ==='
-          grep -RniF 'update does not declare its embedded checksum' /tmp/src || true
-          echo '=== checksum parser context ==='
-          grep -RniEi 'embedded.*checksum|checksum.*embedded|PAYLOAD.*SHA|sha256' /tmp/src/app /tmp/src/bin /tmp/src/installer 2>/dev/null | head -300 || true
+          echo '=== updater.py validation region 260-540 ==='
+          sed -n '260,540p' /tmp/src/app/updater.py
+          echo '=== update runner 1-240 ==='
+          sed -n '1,240p' /tmp/src/installer/veloraos-update-runner.py
+          echo '=== known-good wrapper checksum declarations ==='
+          sed -n '1,140p' "$BASE" | grep -Ei 'sha|checksum|payload|embedded|archive|bytes' || true
+          echo '=== exact error variants across payload ==='
+          grep -RniEi 'declare.*checksum|embedded checksum|embedded.*sha|checksum.*declare|checksum.*script' /tmp/src 2>/dev/null || true
