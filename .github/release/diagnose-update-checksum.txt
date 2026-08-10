@@ -1,3 +1,4 @@
 Inspect installed updater checksum parser for VeloraOS 2.0.1 compatibility.
 Expanded validation-region diagnostic.
 Inspect minimum-supported VeloraOS 1.16.0 updater contract.
+Inspect published VeloraOS 2.0.1 payload preflight.
